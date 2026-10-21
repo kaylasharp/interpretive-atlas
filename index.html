@@ -1,0 +1,2138 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpretive Atlas | Qualitative Research Studio</title><style>
+:root{--bg:#f5f5f2;--panel:#fff;--ink:#18292d;--muted:#6b7b7b;--line:#dde5e2;--accent:#136f68;--soft:#e7f4f0;--purple:#7056a7;--gold:#d7a24e}body.dark{--bg:#101c20;--panel:#1b2b30;--ink:#e8f2ef;--muted:#9fb1b0;--line:#34484c;--accent:#70d5bd;--soft:#294a48;--purple:#bca1f0;--gold:#e4b56b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:9px 13px;background:var(--panel);color:var(--ink)}button:hover{border-color:var(--accent)}button.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}input,select,textarea{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%}textarea{min-height:80px}h1{font-size:30px;letter-spacing:-1px;margin:0}h2{font-size:19px;margin:0 0 14px}h3{margin:0 0 8px;font-size:15px}.muted{color:var(--muted)}.small{font-size:12px}.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:26px 16px}.brand{font-size:20px;font-weight:800;letter-spacing:-.6px;padding:0 10px 28px}.brand span{color:var(--accent)}.nav{display:block;width:100%;text-align:left;border:0;margin:4px 0;padding:13px}.nav.active{background:var(--soft);color:var(--accent);font-weight:700}.main{padding:28px 36px;max-width:1550px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:25px}.actions{display:flex;gap:8px;flex-wrap:wrap}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:800}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px}.metric{font-size:32px;font-weight:800}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{margin-bottom:16px}.barrow{display:grid;grid-template-columns:125px 1fr 38px;align-items:center;gap:12px;margin:13px 0}.track{background:var(--soft);height:13px;border-radius:10px;overflow:hidden}.fill{height:100%;background:var(--accent);border-radius:10px}.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin-bottom:15px}.entry{padding:16px 0;border-top:1px solid var(--line)}.entryhead{display:flex;justify-content:space-between;gap:10px;align-items:center}.tag{display:inline-block;border-radius:20px;background:var(--soft);color:var(--accent);padding:3px 9px;font-size:11px;margin:3px}.quote{border-left:3px solid var(--gold);padding:8px 15px;margin:12px 0;background:var(--bg);font-style:italic}.split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:16px}.stack{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.heat{display:grid;grid-template-columns:200px repeat(4,1fr);gap:5px}.heat>div{padding:12px;border-radius:7px;text-align:center;background:var(--bg)}.heat .hot{background:var(--soft);color:var(--accent);font-weight:800}.notice{padding:13px 16px;border-left:3px solid var(--gold);background:var(--soft);margin:15px 0}.hidden{display:none}.themebox{border:1px solid var(--line);border-radius:12px;padding:15px;margin:10px 0}.view{display:none}.view.active{display:block}svg{max-width:100%} .link{color:var(--accent);cursor:pointer;text-decoration:underline} @media(max-width:900px){.app{display:block}.sidebar{padding:12px;display:flex;gap:5px;flex-wrap:wrap}.brand{width:100%;padding:5px}.nav{width:auto}.main{padding:18px}.cards,.grid2,.split{grid-template-columns:1fr 1fr}.filters{grid-template-columns:1fr 1fr}}@media(max-width:600px){.cards,.grid2,.split,.filters{grid-template-columns:1fr}.top{display:block}.heat{grid-template-columns:120px repeat(4,1fr);font-size:11px}.heat>div{padding:5px}}@media print{.sidebar,.actions,.filters,.no-print,button{display:none!important}.app{display:block}.main{padding:0}.view{display:block!important;page-break-before:always}.card,.panel{break-inside:avoid}body{background:white;color:black}.entry{break-inside:avoid}}
+
+.cloudbar{padding:12px 16px;background:var(--panel);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}.cloudbar input{max-width:320px}.cloudbar button{padding:7px 10px}.cloudbar .muted{font-size:12px}.cloudpanel{padding:14px 20px;border:1px solid var(--line);background:var(--panel);border-radius:12px;margin:12px 0}.cloudpanel label{display:block;margin:8px 0}.cloudpanel input{max-width:560px}.cloudpanel button{margin:4px}.cloudwarn{color:#b56723;font-weight:600}
+
+/* V5: researcher-friendly form controls and accessible contextual help */
+.help-tip{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--soft);color:var(--accent);border:1px solid var(--line);font-size:11px;font-weight:800;cursor:help;vertical-align:middle;margin-left:5px;position:relative}
+.help-tip:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.help-tip:is(:hover,:focus-visible)::after{content:attr(data-tip);position:absolute;z-index:100;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%);width:max-content;max-width:min(290px,75vw);white-space:normal;background:var(--ink);color:var(--panel);padding:10px 12px;border-radius:9px;box-shadow:0 8px 22px #0003;font-weight:400;font-size:12px;line-height:1.45;text-align:left;pointer-events:none}
+.editor-section{margin:16px 0}.editor-section-title{font-weight:750;margin-bottom:6px}.editor-section-desc{color:var(--muted);font-size:12px;margin-bottom:10px}
+.category-picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin:12px 0 20px}
+.category-choice{display:flex;align-items:center;gap:11px;border:1px solid var(--line);background:var(--panel);padding:12px 13px;border-radius:12px;cursor:pointer;transition:background .12s,border-color .12s,box-shadow .12s;min-height:52px}
+.category-choice:hover{border-color:var(--accent);background:var(--soft)}
+.category-choice:has(input:checked){border-color:var(--accent);background:var(--soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.category-choice:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.category-choice input[type=checkbox]{appearance:none;-webkit-appearance:none;width:20px;height:20px;min-width:20px;padding:0;margin:0;border:1.5px solid var(--muted);border-radius:6px;display:grid;place-items:center;cursor:pointer}
+.category-choice input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+.category-choice input[type=checkbox]:checked::after{content:'✓';font-size:14px;color:var(--panel);font-weight:800}
+.category-choice span{overflow-wrap:anywhere;line-height:1.35}
+.editor-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.cloud-reset{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.cloud-reset input{max-width:480px;margin:8px 0}.cloud-reset button{margin-top:6px}
+.cloudbar button:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:680px){.category-picker{grid-template-columns:1fr}.help-tip:is(:hover,:focus-visible)::after{left:auto;right:0;transform:none}}
+
+/* V6: restrained editorial UI, better density, clearer interaction */
+:root{--bg:#f5f5f2;--panel:#fff;--ink:#25302f;--muted:#67726f;--line:#dce1dc;--accent:#286c61;--soft:#edf2ed;--purple:#786e82;--gold:#a98757}
+body.dark{--bg:#151b1b;--panel:#1e2727;--ink:#e7eae5;--muted:#a9b3ad;--line:#3b4844;--accent:#8dc9b4;--soft:#283833}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.6}
+button{border-radius:6px;font-weight:550;transition:background .15s,border-color .15s}
+input,select,textarea{border-radius:6px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sidebar{padding-top:30px}.brand{font-size:19px;letter-spacing:-.5px}.nav{border-radius:5px;padding:10px 13px;margin:3px 0;font-size:13px}
+.nav.active{box-shadow:inset 3px 0 0 var(--accent);background:var(--soft)}
+.top h1,h1{font-weight:650;letter-spacing:-.8px}.eyebrow,.section-kicker{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.panel,.entry,.card{box-shadow:none!important}.panel{border-radius:9px}.card{border-radius:7px}.entry{border-radius:6px}
+.section-kicker{margin-bottom:6px}.codebook-tools{display:flex;align-items:center;gap:14px;margin:18px 0 20px}.codebook-tools input{max-width:460px}
+.rule-card{border:1px solid var(--line);border-radius:7px;margin:10px 0;background:var(--panel)}
+.rule-card>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:16px 18px}
+.rule-card>summary::-webkit-details-marker{display:none}.rule-card>summary span:first-child{display:grid;gap:4px}
+.rule-card>summary b{font-size:14px;font-weight:650}.rule-card>summary small{color:var(--muted);font-size:12px;max-width:780px}
+.rule-chevron{font-size:12px;color:var(--accent);white-space:nowrap}.rule-card[open] .rule-chevron{opacity:.7}
+.rule-editor{padding:0 18px 18px;border-top:1px solid var(--line)}.rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;padding-top:16px}
+.rule-field{display:block;font-size:12px;font-weight:650}.rule-field span{display:block;margin-bottom:6px}.rule-field textarea{font-weight:400;min-height:92px;resize:vertical;line-height:1.5}
+.rule-field:first-child{grid-column:1/-1}.rule-field:first-child textarea{min-height:70px}
+.category-picker{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px!important}
+.assignment-row{position:relative;min-width:0;border:1px solid var(--line);border-radius:7px;padding:0 10px 0 0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.assignment-row:has(input:checked){border-color:var(--accent);background:var(--soft)}
+.assignment-row .category-choice{border:0!important;background:transparent!important;box-shadow:none!important;display:flex;align-items:flex-start;gap:10px;padding:13px 10px 13px 13px;min-width:0;margin:0;cursor:pointer}
+.assignment-row .category-choice input{flex:0 0 auto;width:17px;height:17px;margin-top:3px;accent-color:var(--accent)}
+.assignment-row .category-choice span{display:grid;gap:3px;min-width:0}.assignment-row .category-choice b{font-size:13px;font-weight:620}.assignment-row .category-choice small{font-size:11px;color:var(--muted);line-height:1.4;font-weight:400}
+.rules-toggle{font-size:11px;padding:6px 9px;border-color:transparent;background:transparent;color:var(--accent);white-space:nowrap}
+.inline-rule{grid-column:1/-1;border-top:1px solid var(--line);padding:12px 14px;font-size:12px;line-height:1.6}.inline-rule[hidden]{display:none}.inline-rule p{margin:0 0 8px}.inline-rule b{display:inline-block;min-width:65px;color:var(--accent)}
+.review-panel{border:1px solid var(--line);border-radius:7px;padding:16px;margin:18px 0;background:var(--soft)}.review-heading{display:flex;justify-content:space-between;align-items:center}.review-panel p{margin:8px 0}.review-panel textarea{min-height:74px}.review-panel .stack{margin-top:9px}
+.review-pill{display:inline-block;font-size:11px;font-weight:650;padding:3px 8px;border:1px solid var(--gold);color:var(--ink);border-radius:4px}
+.entry-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+@media(max-width:950px){.rule-grid,.category-picker{grid-template-columns:1fr}.codebook-tools{flex-wrap:wrap}}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script></head><body><div class="cloudbar"><b>☁ Collaboration</b><span id="cloudstatus" class="muted">Local-only · not connected</span><button onclick="cloudToggle()">Set up / sign in</button><button onclick="cloudRefresh()">↻ Load latest shared work</button><button onclick="cloudPush()">↑ Save shared work</button></div><div id="cloudpanel" class="cloudpanel" style="display:none"><h3>Connect your shared research workspace</h3><p class="small muted">Use the Supabase Project URL and PUBLISHABLE key (never a secret/service_role key). Connection settings are saved only in this browser.</p><label>Project URL <input id="cloudurl" placeholder="https://yourproject.supabase.co"></label><label>Publishable key <input id="cloudkey" placeholder="sb_publishable_..."></label><button onclick="cloudConfigure()">Save connection settings</button><hr><label>Researcher email <input id="cloudemail" type="email" placeholder="you@university.edu"></label><label>Password <input id="cloudpassword" type="password" placeholder="Your Supabase login password"></label><button class="primary" onclick="cloudSignIn()">Sign in</button><button onclick="cloudSignUp()">Create researcher account</button><button type="button" onclick="cloudShowResetRequest()">Forgot password?</button><button onclick="cloudSignOut()">Sign out</button>
+<div id="resetrequest" class="cloud-reset" hidden><b>Reset your password</b><p class="small muted">Enter your researcher email above, then request a secure reset link. The link returns you to this website.</p><button type="button" class="primary" onclick="cloudRequestReset()">Email me a reset link</button></div>
+<div id="resetfinish" class="cloud-reset" hidden><b>Choose a new password</b><p class="small muted">You're using a password-recovery link. Enter your new password below (at least 8 characters).</p><label>New password <input id="cloudnewpassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters"></label><label>Confirm new password <input id="cloudconfirmpassword" type="password" autocomplete="new-password" minlength="8" placeholder="Re-enter new password"></label><button type="button" class="primary" onclick="cloudCompleteReset()">Update password</button></div><p class="small cloudwarn">Before using shared sync: export your current JSON backup. The first researcher should select “Save shared work” to initialize the database. The second researcher should select “Load latest shared work.” Edits sync after saving, but simultaneous editing is not conflict-safe. Refresh before editing.</p><div id="clouderr" class="small"></div></div><div class="app"><aside class="sidebar"><div class="brand">◈ Interpretive <span>Atlas</span><div class="muted small">QUALITATIVE RESEARCH STUDIO</div></div><button class="nav active" data-view="overview">◫ &nbsp; Overview</button><button class="nav" data-view="explorer">☷ &nbsp; Code explorer</button><button class="nav" data-view="codebook">▤ &nbsp; Category codebook</button><button class="nav" data-view="matrix">▦ &nbsp; Cross-interview matrix</button><button class="nav" data-view="synthesis">◇ &nbsp; Categories & themes</button><button class="nav" data-view="insights">◈ &nbsp; Interactive insights</button><button class="nav" data-view="keywords">⌕ &nbsp; Keywords & topics</button><button class="nav" data-view="audit">↺ &nbsp; Decision trail</button><hr style="border:0;border-top:1px solid var(--line);margin:25px 0"><p class="small muted">Working analysis • Four interviews<br>Original source records remain unchanged. Edits are tracked separately.</p><button onclick="toggleDark()">☾ Toggle dark / light</button></aside><main class="main"><header class="top"><div><div class="eyebrow">EDH6931 · SHARP & STOETZER</div><h1 id="pageTitle">Research overview</h1><div class="muted">Institutional Email Communication · First-cycle in vivo coding</div></div><div class="actions"><button onclick="exportJSON()">↓ Backup JSON</button><button onclick="exportCSV()">↓ Export CSV</button><button onclick="exportImage()">▧ Chart image</button><button class="primary" onclick="window.print()">⎙ Export PDF</button></div></header><div class="notice small">Research integrity: original PDF-derived records are immutable in this workspace. Category assignments, working edits, themes, and analytic memos are saved locally in this browser and recorded in the decision trail. Export a JSON backup before switching devices or clearing browser data. Verify PDF-extracted text against the original before publication.</div>
+<section id="overview" class="view active"><div class="cards" id="metrics"></div><div class="grid2"><div class="panel"><h2>Research question alignment <span class="help-tip" tabindex="0" role="note" aria-label="Coded entries may align with more than one research question" data-tip="Counts reflect coded entries aligned to each research question. One entry may count toward multiple questions.">?</span></h2><div id="rqbars"></div><p class="small muted">One coded entry may align with multiple research questions.</p></div><div class="panel"><h2>Code distribution by interview <span class="help-tip" tabindex="0" role="note" aria-label="Counts coded entries not participants" data-tip="Shows coded entries by interview, not how many participants agree with an idea.">?</span></h2><div id="subbars"></div><p class="small muted">Number of coded rows, not number of participants expressing a theme.</p></div></div><div class="panel"><h2>From evidence to interpretation</h2><div class="stack"><span class="tag">Original excerpt</span>→<span class="tag">In vivo code</span>→<span class="tag">Provisional category</span>→<span class="tag">Emerging theme</span>→<span class="tag">Analytic memo</span></div><p class="muted">Use the Code Explorer to assign categories and document working revisions. Build themes in Categories & Themes and compare your evolving interpretations across interview subjects.</p></div></section>
+<section id="codebook" class="view"><div class="panel"><div class="section-kicker">ANALYTIC FRAMEWORK</div><h2>Category codebook</h2><p class="muted">Shared working definitions and application rules for collaborative categorization. Changes are recorded in the decision trail and included in shared saves.</p><div class="codebook-tools"><input id="ruleSearch" placeholder="Find a category or application rule…" oninput="renderCodebook()"><span class="small muted" id="ruleCount"></span></div><div id="ruleList"></div></div></section><section id="explorer" class="view"><div class="panel"><div class="filters"><input id="search" placeholder="Search codes, excerpts, definitions…" oninput="renderExplorer()"><select id="subfilter" onchange="renderExplorer()"><option value="">All interviews</option><option value="1">Subject 1</option><option value="2">Subject 2</option><option value="3">Subject 3</option><option value="4">Subject 4</option></select><select id="rqfilter" onchange="renderExplorer()"><option value="">All research questions</option><option>PRQ</option><option>SRQ1</option><option>SRQ2</option><option>SRQ3</option></select><select id="catfilter" onchange="renderExplorer()"><option value="">All categories</option></select><select id="reviewfilter" onchange="renderExplorer()"><option value="">All review statuses</option><option value="open">Needs discussion</option><option value="resolved">Resolved discussions</option></select></div><div class="stack" style="justify-content:space-between"><span id="resultcount" class="muted"></span><button onclick="addCode()">+ Add analytic code</button></div><div id="entries"></div></div></section>
+<section id="matrix" class="view"><div class="panel"><h2>Cross-interview category matrix</h2><p class="muted">Counts represent coded entries assigned to a category within each interview, not participant-level prevalence. Select a cell to inspect the underlying evidence.</p><div id="matrixbody"></div></div><div class="panel" id="matrixdetail"></div></section>
+<section id="synthesis" class="view"><div class="split"><div><div class="panel"><h2>Provisional categories</h2><div class="stack"><input id="newcat" style="flex:1" placeholder="Name a proposed category"><button class="primary" onclick="createCat()">+ Add</button></div><div id="categorylist"></div></div><div class="panel"><h2>Emerging themes</h2><div class="stack"><input id="newtheme" style="flex:1" placeholder="Working theme name"><button class="primary" onclick="createTheme()">+ Add</button></div><div id="themelist"></div></div></div><div class="panel"><h2>Analytic memo workspace</h2><p class="muted">Document comparisons, disconfirming evidence, questions, and rationale for analytic choices. Each saved memo creates a timestamped decision record.</p><input id="memotitle" placeholder="Memo title"><textarea id="memobody" style="margin-top:10px;min-height:180px" placeholder="What are you noticing? What evidence supports or challenges this interpretation?"></textarea><button class="primary" onclick="saveMemo()">Save analytic memo</button><div id="memolist"></div></div></div></section>
+<section id="insights" class="view"><div class="cards" id="insightmetrics"></div><div class="panel"><h2>Research question × interview heatmap</h2><p class="muted small">Click any cell to inspect every underlying coded entry. Counts are coding rows, not participant prevalence.</p><div id="rqheat"></div><div id="rqdetail" class="panel" style="margin-top:16px"></div></div><div class="grid2"><div class="panel"><h2>Category co-occurrence</h2><p class="small muted">Two categories co-occur when both are assigned to the same coded entry. Click a cell to inspect evidence.</p><div id="coheat"></div></div><div class="panel"><h2>Topic × interview heatmap</h2><p class="small muted">Researcher-created topic labels, not automatically inferred themes.</p><div id="topicheat"></div></div></div><div class="panel"><h2>Evidence drill-down</h2><div id="insightdetail">Choose a cell to review its supporting evidence.</div></div></section>
+<section id="keywords" class="view"><div class="grid2"><div class="panel"><h2>Keyword in context</h2><p class="small muted">Searches original code, definition and excerpt; no AI inference. Select a hit to open the code explorer.</p><div class="stack"><input id="kwquery" placeholder="e.g. relevant, spam, subject line" oninput="renderKeywords()"><select id="kwsubject" onchange="renderKeywords()"><option value="">All interviews</option><option value="1">Subject 1</option><option value="2">Subject 2</option><option value="3">Subject 3</option><option value="4">Subject 4</option></select></div><div id="kwresults"></div></div><div class="panel"><h2>Build your topic taxonomy</h2><p class="small muted">Create topical tags separate from provisional categories and themes. Assign them to coded entries, then compare their distribution in Interactive Insights.</p><div class="stack"><input id="newtopic" placeholder="New topic, e.g. sender identity"><button class="primary" onclick="createTopic()">+ Create topic</button></div><div id="topiclist"></div><h3 style="margin-top:18px">Assign topics to an entry</h3><select id="topiccode" onchange="renderTopicEditor()"></select><div id="topiceditor"></div></div></div></section><section id="audit" class="view"><div class="panel"><h2>Decision trail <span class="help-tip" tabindex="0" role="note" aria-label="Decision history is not tamper proof" data-tip="Tracks edits made in this workspace. Export dated backups for research documentation; this is not an immutable audit log.">?</span></h2><p class="muted">A chronological record of edits and analytic choices. Export a backup regularly. Browser-local history is not tamper-proof or a substitute for secure institutional storage.</p><div id="auditlist"></div></div><div class="panel"><h2>Restore workspace backup</h2><input type="file" accept="application/json" onchange="importBackup(event)"><p class="small muted">Import replaces local analytic decisions and custom records. The embedded source codebook is never replaced.</p></div></section></main></div><script>const SOURCE=[
+  {
+    "id": "C001",
+    "subject": 1,
+    "code": "Don't read them",
+    "definition": "Choosing not to read institutional emails.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I usually don't read them”",
+    "timestamp": "02:21",
+    "page": 3
+  },
+  {
+    "id": "C002",
+    "subject": 1,
+    "code": "I usually delete them",
+    "definition": "Routinely deleting institutional emails rather than engaging with their content.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I usually delete them.”",
+    "timestamp": "02:21",
+    "page": 3
+  },
+  {
+    "id": "C003",
+    "subject": 1,
+    "code": "Bit of attention",
+    "definition": "Showing limited interest in certain institutional updates.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I like paid a little bit of attention.”",
+    "timestamp": "02:44",
+    "page": 3
+  },
+  {
+    "id": "C004",
+    "subject": 1,
+    "code": "All blur together",
+    "definition": "Perceiving different types of institutional emails as indistinguishable.",
+    "rqs": [
+      "PRQ",
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“The different types, I mean, in my mind they kind of all blur together “",
+    "timestamp": "04:00",
+    "page": 3
+  },
+  {
+    "id": "C005",
+    "subject": 1,
+    "code": "So low priority",
+    "definition": "Thought process behind prioritizing class related emails over all others.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“Stuff that isn't immediately related to my classes tends to be so low priority that I don't even like open it.”",
+    "timestamp": "04:00",
+    "page": 3
+  },
+  {
+    "id": "C006",
+    "subject": 1,
+    "code": "Less important to me",
+    "definition": "Assigning lower priority to institutional news and current events.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Current events and news tend to be less important to me.”",
+    "timestamp": "04:45",
+    "page": 3
+  },
+  {
+    "id": "C007",
+    "subject": 1,
+    "code": "The headlines are interesting",
+    "definition": "Using the appeal of headlines to determine whether to engage with an email.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“It's usually just how easy it is to just like skim through an email and see like if any of the headlines are interesting.”",
+    "timestamp": "05:16",
+    "page": 3
+  },
+  {
+    "id": "C008",
+    "subject": 1,
+    "code": "Like Spam",
+    "definition": "Perceiving general institutional mass emails as unsolicited or unwanted messages.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“I just treat it more like spam.”",
+    "timestamp": "05:55",
+    "page": 3
+  },
+  {
+    "id": "C009",
+    "subject": 1,
+    "code": "Open it and read through",
+    "definition": "Being more willing to engage with messages addressed specifically to the recipient.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If it's to me specifically, then I'm more likely to like open it and read through it.”",
+    "timestamp": "05:55",
+    "page": 3
+  },
+  {
+    "id": "C010",
+    "subject": 1,
+    "code": "Prioritize that",
+    "definition": "Giving greater priority to communications from professors.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If it's like an email from a professor, then I of course like prioritize that”",
+    "timestamp": "06:28",
+    "page": 3
+  },
+  {
+    "id": "C011",
+    "subject": 1,
+    "code": "Harder to parse through",
+    "definition": "Experiencing difficulty processing dense or text-heavy emails.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“And it's just harder to parse through all of it because it ends up just being like a block of text.”",
+    "timestamp": "06:50",
+    "page": 3
+  },
+  {
+    "id": "C012",
+    "subject": 1,
+    "code": "Download external images",
+    "definition": "Having to take additional steps to view images included in institutional emails.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“because of UF's firewall thing, you have to specifically go out of your way to download external images.”",
+    "timestamp": "07:32",
+    "page": 3
+  },
+  {
+    "id": "C013",
+    "subject": 1,
+    "code": "Pretty useful",
+    "definition": "Perceiving financial aid emails as valuable or relevant.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I think the UF financial aid emails are pretty useful.”",
+    "timestamp": "08:20",
+    "page": 3
+  },
+  {
+    "id": "C014",
+    "subject": 1,
+    "code": "Skim through",
+    "definition": "Quickly reviewing emails to locate necessary information or actions.",
+    "rqs": [
+      "PRQ",
+      "SRQ3"
+    ],
+    "excerpt": "“I'm able to easily skim through them and know, like, where the button is I need to click.”",
+    "timestamp": "08:20",
+    "page": 4
+  },
+  {
+    "id": "C015",
+    "subject": 1,
+    "code": "Consistently laid out",
+    "definition": "Valuing predictable formatting that makes recurring emails easier to navigate.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“Yeah, those ones are consistently laid out the same every single time, every year, every semester. And I appreciate that.”",
+    "timestamp": "08:20",
+    "page": 4
+  },
+  {
+    "id": "C016",
+    "subject": 1,
+    "code": "Related to class",
+    "definition": "Prioritizing communication that directly affects coursework or class attendance.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Like, obviously stuff that's related to class I have to pay attention to because that determines like, what I'm doing through class or whether or not I have to go to class or whether like the building will be open.”",
+    "timestamp": "09:07",
+    "page": 4
+  },
+  {
+    "id": "C017",
+    "subject": 1,
+    "code": "Pay less attention",
+    "definition": "Giving less attention to broad university communications than personally relevant messages.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I tend to pay less attention to to those, like, broader things.”",
+    "timestamp": "09:07",
+    "page": 4
+  },
+  {
+    "id": "C018",
+    "subject": 1,
+    "code": "Clear out of my inbox",
+    "definition": "Viewing recurring institutional emails as additional messages to remove or manage.",
+    "rqs": [
+      "SRQ1",
+      "PRQ"
+    ],
+    "excerpt": "“It's just one more thing for me to clear out of my inbox.”",
+    "timestamp": "10:08",
+    "page": 4
+  },
+  {
+    "id": "C019",
+    "subject": 1,
+    "code": "A little annoying",
+    "definition": "Experiencing mild frustration with repetitive institutional messages.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“It seems like it never expires and then it just keeps carrying on through the rest of the semester. Those are a little annoying, but they like, cause me no harm.”",
+    "timestamp": "11:16",
+    "page": 4
+  },
+  {
+    "id": "C020",
+    "subject": 1,
+    "code": "Set up like a filter",
+    "definition": "Using automated filtering to manage unwanted or excessive emails.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“If it's like a lot, then I'll set up like a filter to delete them.”",
+    "timestamp": "12:00",
+    "page": 4
+  },
+  {
+    "id": "C021",
+    "subject": 1,
+    "code": "Automatically goes to trash",
+    "definition": "Automatically directing unwanted emails to the trash through filtering rules.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“ Like, if it mentions like, announcement, like a dissertation announcement sort of thing, then I'll put like a blocker. So automatically goes to trash. Like, if it mentions like, announcement, like a dissertation announcement sort of thing, then I'll put like a blocker. So automatically goes to trash.”",
+    "timestamp": "12:00",
+    "page": 4
+  },
+  {
+    "id": "C022",
+    "subject": 1,
+    "code": "Quick mental checklist",
+    "definition": "Using a routine process to assess the legitimacy of incoming emails.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“There's a quick mental checklist of like, is it a UFL email? If it's not?”",
+    "timestamp": "13:37",
+    "page": 4
+  },
+  {
+    "id": "C023",
+    "subject": 1,
+    "code": "Trustworthy email or not",
+    "definition": "Evaluating whether a message comes from a legitimate and credible source.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“I've done the UF phishing training thing multiple times, so I'm able to pretty quickly go through and know whether like, this is a trustworthy email or not.”",
+    "timestamp": "13:37",
+    "page": 4
+  },
+  {
+    "id": "C024",
+    "subject": 1,
+    "code": "Pay more attention",
+    "definition": "Giving greater attention to messages sent by individual people.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I pay more attention to stuff from individuals.”",
+    "timestamp": "14:23",
+    "page": 5
+  },
+  {
+    "id": "C025",
+    "subject": 1,
+    "code": "More relevant to what I’m doing",
+    "definition": "Perceiving messages from departments closer to the student's academic activities as more relevant.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If it's closer to me departmentally, then it's probably more relevant to like what I'm doing.”",
+    "timestamp": "14:23",
+    "page": 5
+  },
+  {
+    "id": "C026",
+    "subject": 1,
+    "code": "Do not reply",
+    "definition": "Identifying general announcements as messages that do not invite or require a response.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“Most of the emails I get are like do not reply kind of emails, like general announcement kind of stuff.”",
+    "timestamp": "15:10",
+    "page": 5
+  },
+  {
+    "id": "C027",
+    "subject": 1,
+    "code": "Requires a reply",
+    "definition": "Changing email priorities when a message requires a response.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If it's something that requires a reply, then the kind of hierarchy changes.”",
+    "timestamp": "15:10",
+    "page": 5
+  },
+  {
+    "id": "C028",
+    "subject": 1,
+    "code": "Don’t like having spam",
+    "definition": "Expressing frustration with receiving unwanted institutional communications.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“I just don't like having spam.”",
+    "timestamp": "16:07",
+    "page": 5
+  },
+  {
+    "id": "C029",
+    "subject": 1,
+    "code": "Find the unsubscribe button",
+    "definition": "Experiencing inconvenience when attempting to unsubscribe from mailing lists.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“But it is a little bit annoying to have to like go through and find the unsubscribe button and hope that it works”",
+    "timestamp": "16:07",
+    "page": 5
+  },
+  {
+    "id": "C030",
+    "subject": 1,
+    "code": "Actually important to me",
+    "definition": "Distinguishing necessary administrative and academic emails from less relevant communications.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“But in terms of like actual like admin kind of stuff, things that are actually important to me, like financial aid classes, I think those emails are fine.”",
+    "timestamp": "16:07",
+    "page": 5
+  },
+  {
+    "id": "C031",
+    "subject": 1,
+    "code": "Emails as unwanted ads",
+    "definition": "Interpreting promotional institutional emails as unwanted advertising.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“I'm very ad averse and I treat those emails as unwanted ads and so they would have to like really tailor them to me.”",
+    "timestamp": "17:30",
+    "page": 5
+  },
+  {
+    "id": "C032",
+    "subject": 1,
+    "code": "Blockers set up",
+    "definition": "Using blocking tools that may limit receipt of personalized institutional messages.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“But I'm probably going to have blockers set up so that they can't do like perfect personalized emails.”",
+    "timestamp": "17:30",
+    "page": 5
+  },
+  {
+    "id": "C033",
+    "subject": 1,
+    "code": "Empty gray squares",
+    "definition": "Experiencing missing email images as frustrating and discouraging engagement.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“It's pretty annoying to open an email and just see a bunch of like empty gray squares.”",
+    "timestamp": "18:26",
+    "page": 5
+  },
+  {
+    "id": "C034",
+    "subject": 1,
+    "code": "Density of the information",
+    "definition": "Evaluating email content density separately from its personal relevance.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“But in terms of like the actual density of the information and the flow of it, I think it's fine. It's just not relevant to me.”",
+    "timestamp": "18:26",
+    "page": 5
+  },
+  {
+    "id": "C035",
+    "subject": 1,
+    "code": "More important things to do",
+    "definition": "Prioritizing other responsibilities over reading less relevant institutional emails.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I'm busy and I have more important things to do than to peruse in like a dense email.”",
+    "timestamp": "19:28",
+    "page": 5
+  },
+  {
+    "id": "C036",
+    "subject": 1,
+    "code": "Relevant to my classes",
+    "definition": "Valuing communication related to coursework and graduation over general student life.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I care more about things that are relevant to my classes and to graduation and less about student life.”",
+    "timestamp": "19:28",
+    "page": 6
+  },
+  {
+    "id": "C037",
+    "subject": 1,
+    "code": "I myself am pretty organized.",
+    "definition": "Describing personal organization as part of managing email communication.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I myself am pretty organized.”",
+    "timestamp": "20:14",
+    "page": 6
+  },
+  {
+    "id": "C038",
+    "subject": 1,
+    "code": "Skimmed over",
+    "definition": "Perceiving that institutional senders expect students to skim or overlook mass emails.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“I think there's probably some assumption that this is just going to get glazed over or like skimmed over.”",
+    "timestamp": "20:59",
+    "page": 6
+  },
+  {
+    "id": "C039",
+    "subject": 1,
+    "code": "Organize your inbox",
+    "definition": "Recommending inbox organization to manage incoming institutional communication.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I would tell them pretty much to organize your inbox.”",
+    "timestamp": "21:42",
+    "page": 6
+  },
+  {
+    "id": "C040",
+    "subject": 1,
+    "code": "Flag things and make folders",
+    "definition": "Using flags and folders to categorize messages and retrieve important information.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“It's probably good to like flag things and make folders so that you know where everything's going to go and you know how to, you know where to check for these kind of things”",
+    "timestamp": "21:42",
+    "page": 6
+  },
+  {
+    "id": "C041",
+    "subject": 1,
+    "code": "It was important",
+    "definition": "Recognizing a message's importance through keywords in its subject line.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“All I saw was the word registration out of the title. And so I knew that it was important.”",
+    "timestamp": "21:42",
+    "page": 6
+  },
+  {
+    "id": "C042",
+    "subject": 1,
+    "code": "Short and bold",
+    "definition": "Recommending concise communication with visually emphasized important information.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“Keep it short and bold. The important stuff.”",
+    "timestamp": "23:03",
+    "page": 6
+  },
+  {
+    "id": "C043",
+    "subject": 1,
+    "code": "Emails are pretty simple",
+    "definition": "Perceiving important student-related emails as straightforward and easy to understand.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I mean, for the most part, like, important student related emails are pretty simple.”",
+    "timestamp": "23:26",
+    "page": 6
+  },
+  {
+    "id": "C044",
+    "subject": 1,
+    "code": "Links in them are easy",
+    "definition": "Finding necessary links easily because of familiar, consistent email templates.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“They tend to follow like a specific template and so the links in them are easy to find.”",
+    "timestamp": "23:26",
+    "page": 6
+  },
+  {
+    "id": "C045",
+    "subject": 2,
+    "code": "Reminders and announcements",
+    "definition": "Receiving institutional messages about classes, events, and academic activities.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“Most of the emails that I get are either reminders and announcements from my classes or things that I'm subscribed to.”",
+    "timestamp": "01:25",
+    "page": 7
+  },
+  {
+    "id": "C046",
+    "subject": 2,
+    "code": "Pretty neutral",
+    "definition": "Describing the overall experience of institutional email as neither strongly positive nor negative.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“I want to say pretty neutral.”",
+    "timestamp": "03:01",
+    "page": 7
+  },
+  {
+    "id": "C047",
+    "subject": 2,
+    "code": "I really don't care",
+    "definition": "Describing disinterest in information received through subscriptions.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“Negatives is like the most emails that I get and you subscribe to them and they're just giving me information that I really don't care.”",
+    "timestamp": "03:07",
+    "page": 7
+  },
+  {
+    "id": "C048",
+    "subject": 2,
+    "code": "That's pretty nice",
+    "definition": "Appreciating reminders about events or opportunities the student might otherwise overlook.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“But on the other hand, the things that I did subscribe to go in and check in being like, oh, that's a reminder that thing was there. That's pretty nice.”",
+    "timestamp": "03:27",
+    "page": 7
+  },
+  {
+    "id": "C049",
+    "subject": 2,
+    "code": "Checking off boxes",
+    "definition": "Engaging with email as a routine task rather than thoughtfully reviewing messages.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“...but most of the time it's not really even thinking about what's going on. I'm just like opening my email, just checking off the boxes and that's it.”",
+    "timestamp": "03:27",
+    "page": 7
+  },
+  {
+    "id": "C050",
+    "subject": 2,
+    "code": "Very short, to the point",
+    "definition": "Preferring concise emails that communicate information efficiently.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“The ones that I find the most useful are the ones that are very short, to the point and more likely to like read through them if the subject line is very specific to the point and pertains to something that I care about.”",
+    "timestamp": "04:42",
+    "page": 7
+  },
+  {
+    "id": "C051",
+    "subject": 2,
+    "code": "Not going to read it",
+    "definition": "Avoiding lengthy emails unless their content is particularly important.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“With that being said, if I were to be the subject line and open the email and it's like really long, then probably not going to read it.”",
+    "timestamp": "04:42",
+    "page": 7
+  },
+  {
+    "id": "C052",
+    "subject": 2,
+    "code": "Pertaining to my specific life",
+    "definition": "Valuing messages that relate directly to the student's personal circumstances.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I would add to that emails that I find the most helpful are the ones that are pertaining to my specific life.”",
+    "timestamp": "05:54",
+    "page": 7
+  },
+  {
+    "id": "C053",
+    "subject": 2,
+    "code": "Don't even look at them",
+    "definition": "Immediately disregarding messages associated with no-reply senders.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“All the emails that say like don't reply, like do not reply instantly, don't even look at them.”",
+    "timestamp": "06:29",
+    "page": 7
+  },
+  {
+    "id": "C054",
+    "subject": 2,
+    "code": "Name that I recognize",
+    "definition": "Using recognizable sender identities to decide whether to open emails.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Yeah, I think definitely having one with a profile picture and their actual name that I recognize as I get more and more emails from them increases the chance of me clicking on the email.”",
+    "timestamp": "06:29",
+    "page": 8
+  },
+  {
+    "id": "C055",
+    "subject": 2,
+    "code": "Subject line relates to something",
+    "definition": "Engaging with emails where the subject line increases their interest in the topic.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Immediately if the subject line relates to something that matters to me, then I'll click into it”",
+    "timestamp": "08:15",
+    "page": 8
+  },
+  {
+    "id": "C056",
+    "subject": 2,
+    "code": "Immediate turn offs",
+    "definition": "Disliking emails that are content-heavy or poorly organized using headings.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Immediate turn offs is a lot of words and there isn't clear headings.”",
+    "timestamp": "08:15",
+    "page": 8
+  },
+  {
+    "id": "C057",
+    "subject": 2,
+    "code": "likely to just skip over",
+    "definition": "Avoiding emails associated with familiar institutional branding.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“honestly, whenever I see those banners, I’m likely to just skip over the email.”",
+    "timestamp": "10:51",
+    "page": 8
+  },
+  {
+    "id": "C058",
+    "subject": 2,
+    "code": "Key points",
+    "definition": "Wanting a brief overview of key information at the beginning of emails.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“Maybe if there's like a summary at the very beginning, like key points in like one sentence.”",
+    "timestamp": "12:31",
+    "page": 8
+  },
+  {
+    "id": "C059",
+    "subject": 2,
+    "code": "Headings . . . at the very top",
+    "definition": "Preferring emails with important topics presented before more detailed content.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“Maybe if the headings were all just at the very top. Oh, this email is about this, this, this from those few sentences is something that I'm like, oh, you know what, maybe I should look at.”",
+    "timestamp": "12:31",
+    "page": 8
+  },
+  {
+    "id": "C060",
+    "subject": 2,
+    "code": "Less likely to look",
+    "definition": "Engaging less thoroughly with emails when receiving a high volume of messages.",
+    "rqs": [
+      "PRQ",
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“Well, previously I used to get old like 8 emails a day, random things. Then because of that, I was less likely to look at any email in depth.”",
+    "timestamp": "14:11",
+    "page": 8
+  },
+  {
+    "id": "C061",
+    "subject": 2,
+    "code": "Unsubscribed from everything",
+    "definition": "Reducing incoming email volume by removing mailing-list subscriptions.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“But since then I've like gone through the list and just like unsubscribed from everything.”",
+    "timestamp": "14:11",
+    "page": 8
+  },
+  {
+    "id": "C062",
+    "subject": 2,
+    "code": "Looking at the subject lines",
+    "definition": "Reviewing subject lines rather than full messages to determine importance.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I'm go somewhere and I'm just looking at the subject lines and then clicking on them reading the subject line.”",
+    "timestamp": "15:34",
+    "page": 8
+  },
+  {
+    "id": "C063",
+    "subject": 2,
+    "code": "Speed through them",
+    "definition": "Quickly processing messages when overwhelmed by email volume.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“I'm just going to speed through them and as I'm speeding through them I'll speed through the rest of them.”",
+    "timestamp": "16:38",
+    "page": 8
+  },
+  {
+    "id": "C064",
+    "subject": 2,
+    "code": "Didn’t realize",
+    "definition": "Missing an important academic notification amid a large volume of messages.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“So I was put on academic probation and I didn't realize that I was put on academic probation and they sent me like one or two emails and yeah that was when I had so many emails and I just like sped through them.”",
+    "timestamp": "17:20",
+    "page": 8
+  },
+  {
+    "id": "C065",
+    "subject": 2,
+    "code": "More likely to click",
+    "definition": "Being more inclined to open emails using a personalized name",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“An email that said [Interview Subject Two] im more likely to click on it. Pay attention.”",
+    "timestamp": "21:37",
+    "page": 9
+  },
+  {
+    "id": "C066",
+    "subject": 2,
+    "code": "One clear page",
+    "definition": "Wanting a centralized way to review and manage institutional subscriptions.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“All the things that I'm subscribed to in one clear page and like every now and again be able to go and look inside of it and just like, let me click off that.”",
+    "timestamp": "22:38",
+    "page": 9
+  },
+  {
+    "id": "C067",
+    "subject": 2,
+    "code": "Not going to look",
+    "definition": "Anticipating that excessive personalization could reduce attention to personalized messages.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I mean, speaking selfishly, if they're all personalized that I'm just not going to look at the ones that are personalized to me anymore.”",
+    "timestamp": "24:16",
+    "page": 9
+  },
+  {
+    "id": "C068",
+    "subject": 2,
+    "code": "Attention spans",
+    "definition": "Describing students' limited attention when reading institutional emails.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“Maybe our attention spans are just like really, really short.”",
+    "timestamp": "25:00",
+    "page": 9
+  },
+  {
+    "id": "C069",
+    "subject": 2,
+    "code": "Less is more",
+    "definition": "Believing that reducing email volume or content could increase engagement.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“Maybe, like, less is more, you know, less there is, the more likely I am to open up something and actually give it attention.”",
+    "timestamp": "26:35",
+    "page": 9
+  },
+  {
+    "id": "C070",
+    "subject": 2,
+    "code": "I don't organize anything",
+    "definition": "Describing an absence of formal inbox organization practices.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I don't organize anything”",
+    "timestamp": "26:58",
+    "page": 9
+  },
+  {
+    "id": "C071",
+    "subject": 2,
+    "code": "Subject lines",
+    "definition": "Relying primarily on subject lines to navigate incoming email.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I just only look at the only the, like, subject lines.”",
+    "timestamp": "26:58",
+    "page": 9
+  },
+  {
+    "id": "C072",
+    "subject": 2,
+    "code": "Strictly business",
+    "definition": "Viewing institutional emails as functional communications rather than entertainment.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“What they think that we're going to be entertained by is. We will not be entertained by anything. This is strictly business.”",
+    "timestamp": "28:27",
+    "page": 9
+  },
+  {
+    "id": "C073",
+    "subject": 2,
+    "code": "Two seconds",
+    "definition": "Describing a very limited window for capturing attention and communicating important information.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I got two seconds. You got two seconds of my attention.”",
+    "timestamp": "28:27",
+    "page": 9
+  },
+  {
+    "id": "C074",
+    "subject": 3,
+    "code": "Couple times a day",
+    "definition": "Checking institutional email regularly as part of a daily routine.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I'll look at it a couple times a day probably.”",
+    "timestamp": "01:12",
+    "page": 10
+  },
+  {
+    "id": "C075",
+    "subject": 3,
+    "code": "Pretty neutral",
+    "definition": "Describing overall feelings about institutional email as neither strongly positive nor negative.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“Pretty neutral usually. I like that they inform me most of the time.”",
+    "timestamp": "02:26",
+    "page": 10
+  },
+  {
+    "id": "C076",
+    "subject": 3,
+    "code": "Wrong date",
+    "definition": "Noticing a perceived factual error in a campus safety alert.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "\"The wrong date was in the email.\"",
+    "timestamp": "02:49",
+    "page": 10
+  },
+  {
+    "id": "C077",
+    "subject": 3,
+    "code": "Timeliness",
+    "definition": "Describing the importance of timeliness in response to an email sent out about campus safety.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“Tthe timeliness is like probably the main thing that's for the email and not necessarily about the content of the email.”",
+    "timestamp": "03:29",
+    "page": 10
+  },
+  {
+    "id": "C078",
+    "subject": 3,
+    "code": "Specific enough to me",
+    "definition": "Giving greater attention to messages directly relevant to the student.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If it is specific enough to me, I think I would like give it my attention more immediately”",
+    "timestamp": "04:51",
+    "page": 10
+  },
+  {
+    "id": "C079",
+    "subject": 3,
+    "code": "Not click further",
+    "definition": "Opening general news emails without pursuing their content.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I will sometimes just open them and not click further.”",
+    "timestamp": "05:49",
+    "page": 10
+  },
+  {
+    "id": "C080",
+    "subject": 3,
+    "code": "Top couple words",
+    "definition": "Using the opening words to assess a message when its subject line is unhelpful.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“So if that's not super helpful to me, I will then just kind of read the top couple words at least.”",
+    "timestamp": "06:23",
+    "page": 10
+  },
+  {
+    "id": "C081",
+    "subject": 3,
+    "code": "Click a link",
+    "definition": "Following links when an email concerns an existing interest.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If I was interested in it already, I would then click a link.”",
+    "timestamp": "07:32",
+    "page": 10
+  },
+  {
+    "id": "C082",
+    "subject": 3,
+    "code": "Open it and let it die",
+    "definition": "Opening repetitive unwanted messages without reading further.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“Like I don't want a line of credit for the bookstore and they send it all the time and I just open it and let it die.”",
+    "timestamp": "08:18",
+    "page": 10
+  },
+  {
+    "id": "C083",
+    "subject": 3,
+    "code": "I don’t need several others",
+    "definition": "Feeling that repeated reminders are unnecessary after the initial message.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "After I read the first one, I was like, I don't need several others.",
+    "timestamp": "08:18",
+    "page": 10
+  },
+  {
+    "id": "C084",
+    "subject": 3,
+    "code": "I will read it all the way through",
+    "definition": "Participant describes reading an email fully when they determine that its content is relevant.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“For the journalism one, I'll open it and I will probably read the whole thing and just to browse it… if I was correct that it was relevant for me, I will read it all the way through.”",
+    "timestamp": "9:50",
+    "page": 10
+  },
+  {
+    "id": "C085",
+    "subject": 3,
+    "code": "Not actually relevant",
+    "definition": "Stopping reading after discovering that a seemingly relevant message is not intended for the student.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Maybe, like, I just feel like the only reason I would stop reading is if I felt it was not actually relevant.”",
+    "timestamp": "09:50",
+    "page": 11
+  },
+  {
+    "id": "C086",
+    "subject": 3,
+    "code": "Gator safe notification",
+    "definition": "Immediately attending to campus safety communications.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Any UF police or like gator safe notification I'll look at immediately.”",
+    "timestamp": "11:08",
+    "page": 11
+  },
+  {
+    "id": "C087",
+    "subject": 3,
+    "code": "Direct call to action",
+    "definition": "Responding when a message explicitly requests action.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“If there is a direct call to action that makes me think I need to do something to this email, I will respond.”",
+    "timestamp": "11:54",
+    "page": 11
+  },
+  {
+    "id": "C088",
+    "subject": 3,
+    "code": "Who or what is sending",
+    "definition": "Assessing message importance through the sender's identity or institutional role.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“So I know that's like I know who's sending me that. So yes, I think it's not even just like who, but also or like it's who or what is sending it to me is important.”",
+    "timestamp": "13:02",
+    "page": 11
+  },
+  {
+    "id": "C089",
+    "subject": 3,
+    "code": "Real human",
+    "definition": "Preferring messages from a recognizable individual rather than an impersonal source.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“Yeah, so I guess, like, I would prefer a real human most of the time.”",
+    "timestamp": "14:06",
+    "page": 11
+  },
+  {
+    "id": "C090",
+    "subject": 3,
+    "code": "Time due date",
+    "definition": "Looking for deadlines or time-sensitive requirements in relevant emails",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“And then maybe like, if it is specific, then I would probably look. Is there like a time due date or something like that along with it?”",
+    "timestamp": "15:53",
+    "page": 11
+  },
+  {
+    "id": "C091",
+    "subject": 3,
+    "code": "Prefer text first",
+    "definition": "Preferring readable text over image-dependent email content.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“Yes, I think that whenever they try to send a lot of, like, pictures instead of, like, text first, it usually, like, doesn't load very well. And then I'm like, I don't really know what this email is saying, so I probably prefer text first.”",
+    "timestamp": "16:44",
+    "page": 11
+  },
+  {
+    "id": "C092",
+    "subject": 3,
+    "code": "Headers are helpful",
+    "definition": "Finding headers useful for understanding and navigating messages.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“And headers are helpful.”",
+    "timestamp": "16:44",
+    "page": 11
+  },
+  {
+    "id": "C093",
+    "subject": 3,
+    "code": "More information the better",
+    "definition": "Welcoming detailed messages when information is important or expected.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“But I guess the more information the better.”",
+    "timestamp": "17:27",
+    "page": 11
+  },
+  {
+    "id": "C094",
+    "subject": 3,
+    "code": "Short is fine",
+    "definition": "Recommending marketing emails should be shorter and more to-the-point",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“If it's more like a PR release or something, then, like, short is fine.”",
+    "timestamp": "17:27",
+    "page": 11
+  },
+  {
+    "id": "C095",
+    "subject": 3,
+    "code": "Just look like an email",
+    "definition": "Not requiring elaborate visual design for institutional messages.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“If I'm receiving an email, I don't need it to be. I don't need it to look like a website. Like it can just look like an email and I will be fine to read that.”",
+    "timestamp": "18:36",
+    "page": 11
+  },
+  {
+    "id": "C096",
+    "subject": 3,
+    "code": "Say my name",
+    "definition": "Interpreting name-based personalization as a potential marketing cue.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“When it's like, I feel like those personalization ones are often like marketing or spam or. And so it's like, you don't need to say my name, I feel.”",
+    "timestamp": "19:29",
+    "page": 12
+  },
+  {
+    "id": "C097",
+    "subject": 3,
+    "code": "Sender and UF email",
+    "definition": "Using sender identity and a UF email address to evaluate trustworthiness.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Definitely sender and UF email. UF email.”",
+    "timestamp": "20:45",
+    "page": 12
+  },
+  {
+    "id": "C098",
+    "subject": 3,
+    "code": "Less is better",
+    "definition": "Preferring lower frequency for nonurgent institutional communications.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“I mean the more that they send, the less impactful it becomes. For the most part. If they send me like three UF news emails in one day, I think I would unsubscribe. That's a lot for something that's not pressing. So generally less is better.”",
+    "timestamp": "21:31",
+    "page": 12
+  },
+  {
+    "id": "C099",
+    "subject": 3,
+    "code": "Consistency in when they send",
+    "definition": "Valuing predictable timing for recurring institutional emails.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“But maybe like a consistency in when they send it is helpful.”",
+    "timestamp": "21:31",
+    "page": 12
+  },
+  {
+    "id": "C100",
+    "subject": 3,
+    "code": "20 a day",
+    "definition": "Estimating the volume of institutional email received daily.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“I probably get like 20 a day. Maybe 15. 20.”",
+    "timestamp": "22:47",
+    "page": 12
+  },
+  {
+    "id": "C101",
+    "subject": 3,
+    "code": "Notification bubble",
+    "definition": "Opening emails primarily to clear unread notifications.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“Like I'll open those and I just open it and move on and like so it clears the notification. I will just spend a lot of time doing that. Mostly like I won't. I usually don't ignore the email fully and just let it sit just because I don't like the notification bubble.”",
+    "timestamp": "23:09",
+    "page": 12
+  },
+  {
+    "id": "C102",
+    "subject": 3,
+    "code": "News dies fast",
+    "definition": "Perceiving institutional news as quickly losing relevance, reducing motivation to engage with it.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“News dies fast. So that's probably why I wouldn't open the UF news as much.”",
+    "timestamp": "23:09",
+    "page": 12
+  },
+  {
+    "id": "C103",
+    "subject": 3,
+    "code": "Repetitive message",
+    "definition": "Distinguishing between helpful recurring communications and unwanted repetitive messages based on their purpose and relevance.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“If it's a good repetitive message, I like it. I like the consistency of it. If it is trying to sell me something and I have not clicked on anything in it or at all, then I will be annoyed.”",
+    "timestamp": "24:22",
+    "page": 12
+  },
+  {
+    "id": "C104",
+    "subject": 3,
+    "code": "I don't file",
+    "definition": "Choosing not to organize or archive institutional emails into folders.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“Yes, I don't file any of those.”",
+    "timestamp": "25:25",
+    "page": 12
+  },
+  {
+    "id": "C105",
+    "subject": 3,
+    "code": "Don't need to keep",
+    "definition": "Perceiving institutional emails as having limited long-term value or need for retention.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I don't need to keep like, 10 weeks of journalism newsletters because those become irrelevant after the week that they're sent out.”",
+    "timestamp": "25:48",
+    "page": 12
+  },
+  {
+    "id": "C106",
+    "subject": 3,
+    "code": "Timeliness is important",
+    "definition": "Emphasizing the importance of prompt institutional communication, particularly regarding campus safety.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“But in general, I also think, like, timeliness is important for, like, things like safety. I think students would rather be more informed than less informed and have like a record of that in their email, I guess.”",
+    "timestamp": "26:57",
+    "page": 13
+  },
+  {
+    "id": "C107",
+    "subject": 3,
+    "code": "Targeted to the student",
+    "definition": "Preferring institutional communications tailored to students' individual circumstances, needs, or academic affiliations.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I think targeted to the student as much as possible. The UF Bursar emails are literally, to me, and my Bursar account. It's not like they're mass sending an email.”",
+    "timestamp": "28:28",
+    "page": 13
+  },
+  {
+    "id": "C108",
+    "subject": 3,
+    "code": "Actually writing the email",
+    "definition": "Valuing authentic, thoughtfully written communication rather than generic or AI-generated content.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I don't think I've talked about this yet. But actually writing the email is important. Like, if I open my email and it looks like just straight AI slop, I will be like, why did you even send this to me?”",
+    "timestamp": "29:20",
+    "page": 13
+  },
+  {
+    "id": "C109",
+    "subject": 3,
+    "code": "Clear headers and subject lines",
+    "definition": "Recommending clear, descriptive headings and subject lines that help students quickly identify important information.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“So I would just say, like, use clear headers and subject lines would be my best.”",
+    "timestamp": "29:20",
+    "page": 13
+  },
+  {
+    "id": "C110",
+    "subject": 3,
+    "code": "Less marketing",
+    "definition": "Preferring fewer promotional emails or separating marketing communications from important institutional messages.",
+    "rqs": [
+      "SRQ1",
+      "SRQ3"
+    ],
+    "excerpt": "“Less marketing or perhaps like, if it's gonna. If you're gonna send me marketing, like, maybe since they are in control of it, like, I think they can mark it as like a different folder.”",
+    "timestamp": "30:24",
+    "page": 13
+  },
+  {
+    "id": "C111",
+    "subject": 4,
+    "code": "Every aspect of UF",
+    "definition": "Receiving institutional emails from a wide variety of university departments, services, and organizations.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“I sort of receive, I guess, updates from, like, every aspect of UF in a way.”",
+    "timestamp": "02:10",
+    "page": 14
+  },
+  {
+    "id": "C112",
+    "subject": 4,
+    "code": "Very overwhelming",
+    "definition": "Experiencing difficulty managing the volume and variety of institutional communications alongside other responsibilities.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“Sometimes it's very overwhelming because I also use my inbox for, like, club purposes.”",
+    "timestamp": "03:20",
+    "page": 14
+  },
+  {
+    "id": "C113",
+    "subject": 4,
+    "code": "Sometimes it’s good",
+    "definition": "Recognizing that institutional emails can provide useful information despite contributing to inbox overload.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2"
+    ],
+    "excerpt": "“So, yeah, sometimes it's overwhelming, sometimes it's good. A lot of it does feel very repetitive or like it just immediately goes. Gets deleted.”",
+    "timestamp": "04:07",
+    "page": 14
+  },
+  {
+    "id": "C114",
+    "subject": 4,
+    "code": "First five words",
+    "definition": "Using the first few words of an email's subject line or preview to determine whether to engage with it.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I usually only read literally probably the first five words that I can see on my, like, little column of emails.”",
+    "timestamp": "04:58",
+    "page": 14
+  },
+  {
+    "id": "C115",
+    "subject": 4,
+    "code": "Pick and choose",
+    "definition": "Selectively retaining or deleting emails based on their perceived relevance.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I kind of pick and choose, but I feel like definitely reading literally the first, like, four words on the heading, that's what either says, yeah, you can keep it or delete it.”",
+    "timestamp": "05:42",
+    "page": 14
+  },
+  {
+    "id": "C116",
+    "subject": 4,
+    "code": "I always delete those",
+    "definition": "Routinely deleting messages from senders whose content is consistently irrelevant.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“And also the sender, too. Sometimes I get, like, from dining hall. I always delete those. I don't even care what it says.”",
+    "timestamp": "05:42",
+    "page": 14
+  },
+  {
+    "id": "C117",
+    "subject": 4,
+    "code": "Needed the notification",
+    "definition": "Valuing timely reminders about opportunities requiring immediate attention.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Honestly, whenever I read an email that tickets for the homecoming game were on sale, that was important because I really wanted to go and I needed the notification because I know they sell out.”",
+    "timestamp": "06:34",
+    "page": 14
+  },
+  {
+    "id": "C118",
+    "subject": 4,
+    "code": "I always read those",
+    "definition": "Consistently prioritizing campus safety and emergency notifications.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“When I see those and I see that it's from, like, the UFPD or something, I always read those just in case because I get the notifications on my phone, but sometimes also just having it in my email is important as well.”",
+    "timestamp": "07:12",
+    "page": 14
+  },
+  {
+    "id": "C119",
+    "subject": 4,
+    "code": "I was looking for",
+    "definition": "Recognizing relevant communications because the student is anticipating specific information.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“First off, I knew what I was looking for. And so reading a header that related to what I knew I wanted.”",
+    "timestamp": "07:34",
+    "page": 14
+  },
+  {
+    "id": "C120",
+    "subject": 4,
+    "code": "All the content I needed",
+    "definition": "Valuing emails that contain sufficient information to complete a desired action.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“Also, the word homecoming was super important. And then also the email itself had all the content I needed in order to accomplish the goal of buying the ticket”",
+    "timestamp": "07:34",
+    "page": 15
+  },
+  {
+    "id": "C121",
+    "subject": 4,
+    "code": "Directly click it",
+    "definition": "Appreciating accessible links that allow students to complete tasks quickly.",
+    "rqs": [
+      "PRQ",
+      "SRQ3"
+    ],
+    "excerpt": "“Finally having that link where I literally could just directly click it and buy my ticket in like a minute took no time.”",
+    "timestamp": "08:16",
+    "page": 15
+  },
+  {
+    "id": "C122",
+    "subject": 4,
+    "code": "Flashy imagery",
+    "definition": "Associating excessive promotional visuals with unappealing or potentially misleading messages.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“Whenever I see those emails and I just see all this, like, flashy imagery that I know either looks fake or looks like it's just like trying to get my attention even though nothing's really on sale, that immediately, I immediately throw away”",
+    "timestamp": "08:54",
+    "page": 15
+  },
+  {
+    "id": "C123",
+    "subject": 4,
+    "code": "Huge blocks of text",
+    "definition": "Finding lengthy, text-heavy institutional messages unappealing or difficult to engage with.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“There's some that have huge blocks of text that I know that they are just sending to students as a formality and that it really, like that, like, students don't really need to know.”",
+    "timestamp": "09:49",
+    "page": 15
+  },
+  {
+    "id": "C124",
+    "subject": 4,
+    "code": "Not engaging enough",
+    "definition": "Disregarding messages whose writing style or presentation fails to sustain interest.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“They're trying to just like, explain it in the most wordy text possible. I don't read those. I probably maybe should, but it's not engaging enough to me as a student. And you're using text and the style that is not intriguing to me, so I'm not going to read it.”",
+    "timestamp": "09:49",
+    "page": 15
+  },
+  {
+    "id": "C125",
+    "subject": 4,
+    "code": "Benefit from the email",
+    "definition": "Prioritizing messages that offer personally valuable information or opportunities.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Think what really stands out the most is if I'm either going to benefit from the email.”",
+    "timestamp": "11:24",
+    "page": 15
+  },
+  {
+    "id": "C126",
+    "subject": 4,
+    "code": "Stay connected",
+    "definition": "Valuing institutional emails that support a sense of connection with an academic college.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“I think it's also super important because it helps me stay connected to my college and like my professors within there and things like that. And so if there's a way that I'm able to benefit from it, then I'm going to engage in it.”",
+    "timestamp": "11:24",
+    "page": 15
+  },
+  {
+    "id": "C127",
+    "subject": 4,
+    "code": "It’s my job",
+    "definition": "Responding to communications because of responsibilities associated with student leadership roles.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I'm gonna respond to those because that is my job too as like a president of the organization.”",
+    "timestamp": "12:07",
+    "page": 15
+  },
+  {
+    "id": "C128",
+    "subject": 4,
+    "code": "Pinned on my page",
+    "definition": "Retaining important messages for future reference through inbox pinning.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“I've had pinned on my page for so long because it's either scholarships I want to apply to or it's from my advisor giving me like a rundown of the last classes I need to take before I can graduate.”",
+    "timestamp": "12:33",
+    "page": 16
+  },
+  {
+    "id": "C129",
+    "subject": 4,
+    "code": "Those five words better grab me",
+    "definition": "The first few words of an email as crucial for capturing attention during inbox review.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“When I'm reading through my inbox and I'm only seeing the first five words because I'm just either cleaning it out, those five words better grab me and grab my attention quick or else I'm. It's not going to matter to me.”",
+    "timestamp": "13:33",
+    "page": 16
+  },
+  {
+    "id": "C130",
+    "subject": 4,
+    "code": "Subject line is the most important",
+    "definition": "Considering subject lines the primary factor in deciding whether to read an email.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“I definitely think the subject line is the most important in my opinion.”",
+    "timestamp": "13:33",
+    "page": 16
+  },
+  {
+    "id": "C131",
+    "subject": 4,
+    "code": "Sender is also a huge part",
+    "definition": "Considering the sender's identity when determining whether to engage with an email.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Because the sender is also a huge part of if I'm going to get something.”",
+    "timestamp": "13:33",
+    "page": 16
+  },
+  {
+    "id": "C132",
+    "subject": 4,
+    "code": "Priority contact",
+    "definition": "Designating trusted or valuable senders as priority contacts to make their emails easier to identify.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“Those are actually prioritized actually in my inbox. I, I like save them as a priority contact.”",
+    "timestamp": "14:18",
+    "page": 16
+  },
+  {
+    "id": "C133",
+    "subject": 4,
+    "code": "Make it or break it",
+    "definition": "Prioritizing the subject line as the first most important email attribute.",
+    "rqs": [
+      "PRQ",
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“So I feel like it's definitely that first subject line that's either going to make it or break it for me.”",
+    "timestamp": "14:48",
+    "page": 16
+  },
+  {
+    "id": "C134",
+    "subject": 4,
+    "code": "I love images",
+    "definition": "Preferring visual elements that make institutional messages appealing and recognizable.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“I'm also a visual learner, so I love images and I love seeing graphics that grab my attention.”",
+    "timestamp": "15:20",
+    "page": 16
+  },
+  {
+    "id": "C135",
+    "subject": 4,
+    "code": "Huge blocks of text",
+    "definition": "Expressing apathy towards email communications with large amounts of content.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“And so when I see huge blocks of text, I'm like, I don't care enough.”",
+    "timestamp": "16:12",
+    "page": 16
+  },
+  {
+    "id": "C136",
+    "subject": 4,
+    "code": "A good signature",
+    "definition": "Valuing email signatures as indicators of sender identity and credibility.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I love a good signature at the end of an email too.”",
+    "timestamp": "16:12",
+    "page": 16
+  },
+  {
+    "id": "C137",
+    "subject": 4,
+    "code": "Easily contact my advisor",
+    "definition": "Using contact information in email signatures to communicate with university personnel.",
+    "rqs": [
+      "PRQ",
+      "SRQ3"
+    ],
+    "excerpt": "“I easily contact my advisor via phone number because I have his email pinned on my thing and I can find his number through his signature.”",
+    "timestamp": "16:58",
+    "page": 16
+  },
+  {
+    "id": "C138",
+    "subject": 4,
+    "code": "Personal connection",
+    "definition": "Experiencing personalized email greetings as a way to establish a connection with the sender.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“I feel like it creates a little bit more of a personal connection. I feel like that's something that I value a lot”",
+    "timestamp": "18:20",
+    "page": 16
+  },
+  {
+    "id": "C139",
+    "subject": 4,
+    "code": "Just seems fake",
+    "definition": "Generic role-based greetings as making an email seem inauthentic",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“I get a bunch of generic emails that are like, hi, student organization leader. And I'm like, okay, like this just seems fake.”",
+    "timestamp": "18:20",
+    "page": 17
+  },
+  {
+    "id": "C140",
+    "subject": 4,
+    "code": "Want to engage with it",
+    "definition": "Becoming more inclined to respond to messages that feel personally addressed.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“It makes me want to engage with it more and reply to the content and like build upon it.”",
+    "timestamp": "18:58",
+    "page": 17
+  },
+  {
+    "id": "C141",
+    "subject": 4,
+    "code": "A little too forced",
+    "definition": "Perceiving elaborate promotional formatting as inappropriate in certain professional communications.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "So I feel like it depends because sometimes I love it and then sometimes it feels a little too forced.",
+    "timestamp": "19:38",
+    "page": 17
+  },
+  {
+    "id": "C142",
+    "subject": 4,
+    "code": "Incorporate your personality",
+    "definition": "Valuing opportunities for senders to express individuality and authenticity through email.",
+    "rqs": [
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“But I do like that there are ways to incorporate your personality into it.”",
+    "timestamp": "20:37",
+    "page": 17
+  },
+  {
+    "id": "C143",
+    "subject": 4,
+    "code": "From the sender multiple times",
+    "definition": "Using familiarity with a sender through previous communications to evaluate trustworthiness.",
+    "rqs": [
+      "SRQ2"
+    ],
+    "excerpt": "“I'm reading an email, I trust it if I’ve gotten emails from the sender multiple times before.”",
+    "timestamp": "21:24",
+    "page": 17
+  },
+  {
+    "id": "C144",
+    "subject": 4,
+    "code": "Not worth my time",
+    "definition": "Checking sender authenticity before opening emails or following links.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“At the end of the day, I'm not gonna open an email or open a link or anything like that if I don't see that it's like a legit, like at UFL or whatever email because you're either trying to scam me or you're just not worth my time.”",
+    "timestamp": "22:11",
+    "page": 17
+  },
+  {
+    "id": "C145",
+    "subject": 4,
+    "code": "Open my inbox less",
+    "definition": "Avoiding checking email because the volume of institutional messages feels excessive.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“It honestly makes me open my inbox less because I get so annoyed sometimes with the amount of content that is in my inbox.”",
+    "timestamp": "22:46",
+    "page": 17
+  },
+  {
+    "id": "C146",
+    "subject": 4,
+    "code": "My involvement",
+    "definition": "Recognizing that participation in multiple university activities contributes to receiving more emails.",
+    "rqs": [
+      "SRQ1"
+    ],
+    "excerpt": "“I'm in so many things and I'm involved and so I feel like it also just like a factor is just like my involvement is the reason why I have so many emails.”",
+    "timestamp": "23:42",
+    "page": 17
+  },
+  {
+    "id": "C147",
+    "subject": 4,
+    "code": "I was avoiding it",
+    "definition": "Overlooking important communications because of inbox overload or avoidance.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“But if it's like sometimes I do miss an important email because I was avoiding it and not trying to read what was in my inbox because it was overwhelming, but then I missed something that was important or like, that I should have gotten to sooner.”",
+    "timestamp": "23:42",
+    "page": 17
+  },
+  {
+    "id": "C148",
+    "subject": 4,
+    "code": "Come back to them later",
+    "definition": "Revisiting emails that are pinned when they’re designated as important by the participant.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“And then afterwards I sort through and like file them if they're like super important or pin them so that way I can come back to them later.”",
+    "timestamp": "24:48",
+    "page": 18
+  },
+  {
+    "id": "C149",
+    "subject": 4,
+    "code": "Autopilot deleting",
+    "definition": "Deleting messages quickly and habitually, sometimes without fully assessing their importance.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“I just read the first few words if it's something super important. And I realize that sometimes I'm on autopilot deleting, I'll undo it so I can reread it to make sure it wasn't anything, like, crucial to me.”",
+    "timestamp": "25:32",
+    "page": 18
+  },
+  {
+    "id": "C150",
+    "subject": 4,
+    "code": "More cautious about checking",
+    "definition": "Increasing attention to email after experiencing consequences from missed communications.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“And so when I miss those, I feel really bad. And so then I become more cautious about checking my email, which should become. Which should become routine, honestly. But sometimes I fall out of that routine.”",
+    "timestamp": "25:59",
+    "page": 18
+  },
+  {
+    "id": "C151",
+    "subject": 4,
+    "code": "Ups and downs",
+    "definition": "Consistency of checking email is based on the time of the year and other personal circumstances.",
+    "rqs": [
+      "PRQ",
+      "SRQ2"
+    ],
+    "excerpt": "“It there are ebbs and, like, ups and downs when checking it, to be honest with you.”",
+    "timestamp": "26:56",
+    "page": 18
+  },
+  {
+    "id": "C152",
+    "subject": 4,
+    "code": "Pin feature",
+    "definition": "Experiencing inbox pinning as an effective way to prioritize and revisit important emails.",
+    "rqs": [
+      "PRQ"
+    ],
+    "excerpt": "“And then also when I discovered the pin feature to like, pin my emails at the top of my inbox, that changed the game because that was like, it now is like a priority. Every single time I open my inbox, I always see those emails. So it always reminds me to go back to that topic.”",
+    "timestamp": "27:47",
+    "page": 18
+  },
+  {
+    "id": "C153",
+    "subject": 4,
+    "code": "Sheer volume",
+    "definition": "Recognizing the shift in organization of email inbox based on the volume of emails received.",
+    "rqs": [
+      "PRQ",
+      "SRQ1"
+    ],
+    "excerpt": "“So I do think that the sheer volume of emails that I started getting from UF on my UF email influenced me to, like, start filing or labeling them or pinning them”",
+    "timestamp": "28:27",
+    "page": 18
+  },
+  {
+    "id": "C154",
+    "subject": 4,
+    "code": "Part of it",
+    "definition": "Emphasizing that students may read only selected portions of messages rather than ignoring them entirely.",
+    "rqs": [
+      "PRQ",
+      "SRQ3"
+    ],
+    "excerpt": "“I'm still reading your email even if I'm just reading the smallest part of it.”",
+    "timestamp": "28:55",
+    "page": 18
+  },
+  {
+    "id": "C155",
+    "subject": 4,
+    "code": "Tap out",
+    "definition": "Recommending that institutional senders communicate essential information immediately.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“First, I would say you gotta get to the point quick or else students are going to tap out.”",
+    "timestamp": "30:13",
+    "page": 18
+  },
+  {
+    "id": "C156",
+    "subject": 4,
+    "code": "You don't have to be a bot",
+    "definition": "Recommends avoiding impersonal or robotic writing and using a natural voice.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“I know that if someone's not getting to the point quick enough, I'm zoning out… just, like, showing off, like, your personality more… you don't have to be a bot.”",
+    "timestamp": "30:13",
+    "page": 18
+  },
+  {
+    "id": "C157",
+    "subject": 4,
+    "code": "Lose a lot of credibility",
+    "definition": "Perceiving excessive email frequency as diminishing the credibility of institutional senders.",
+    "rqs": [
+      "SRQ1",
+      "SRQ2",
+      "SRQ3"
+    ],
+    "excerpt": "“And maybe there are students out there who really want to know, but I feel like you lose a lot of credibility if you're sending too many emails. You're losing, like, then it just becomes spam at that point.”",
+    "timestamp": "31:33",
+    "page": 19
+  },
+  {
+    "id": "C158",
+    "subject": 4,
+    "code": "Right balance",
+    "definition": "Recommending a balance between personalized communication, frequency, and providing necessary information.",
+    "rqs": [
+      "SRQ3"
+    ],
+    "excerpt": "“I feel like that's just like one of the biggest things is just like trying to find that like, right balance of personal connection and communication, like frequency while still giving to the students the proper information they need in order to like, continue growing at their university.”",
+    "timestamp": "32:53",
+    "page": 19
+  }
+];
+const CATEGORY_DEFAULTS={"Perceived Relevance": {"definition": "How students evaluate whether a message matters to their interests, circumstances, or academic needs.", "include": "Participant evaluates personal applicability, usefulness, or importance.", "exclude": "Only relative attention order is described without a judgment of personal relevance.", "examples": "Less important to me (C006); Specific enough to me (C078)", "boundary": "Distinguish importance to the student from an actual decision to attend to one message before another."}, "Prioritization": {"definition": "How students allocate or rank attention among competing institutional messages.", "include": "Participant compares messages, identifies what gets attention first, or explicitly elevates or deprioritizes an email.", "exclude": "A message is simply described as useful or personally relevant without evidence of attention allocation.", "examples": "Prioritize that (C010); So low priority (C005)", "boundary": "Relative importance alone may suggest prioritization; check surrounding context before assigning."}, "Email Volume and Frequency": {"definition": "Experience of the number, frequency, timing, or repetition of separate institutional emails.", "include": "Participant describes quantity, frequency, repetition, timing, or overload from multiple messages.", "exclude": "The concern is the length or density of a single email.", "examples": "20 a day (C100); Less is better (C098)", "boundary": "Repetition can be welcome or unwelcome; do not assume it causes disengagement."}, "Disengagement": {"definition": "Actions or habits of not engaging with, avoiding, or abandoning institutional emails.", "include": "Participant ignores, skips, deletes without reading, or stops reading a message.", "exclude": "Participant calls a message low priority without describing actual avoidance.", "examples": "Don’t read them (C001); Open it and let it die (C082)", "boundary": "Distinguish deliberate avoidance from a message that was unintentionally overlooked."}, "Credibility and Trust": {"definition": "Assessment of the legitimacy, authenticity, reliability, or trustworthiness of a message or sender.", "include": "Participant checks a sender, questions phishing/spam, or evaluates authenticity or credibility.", "exclude": "Sender matters only because the person or department is academically relevant.", "examples": "Trustworthy email or not (C023); Sender and UF email (C097)", "boundary": "Spam can signal distrust or simply unwanted frequency; use the participant’s stated reasoning."}, "First Impressions and Subject Lines": {"definition": "Decisions based on subject lines, preview text, and first visible words of a message.", "include": "Participant scans headlines, subject lines, previews, or opening words to decide whether to open or read.", "exclude": "Participant is discussing formatting or readability of the body after opening the email.", "examples": "First five words (C114); Subject lines (C071)", "boundary": "If subject-line content signals a deadline, Actionability and Urgency may also apply."}, "Message Brevity": {"definition": "The effects of message length, concision, and textual density on comprehension or attention.", "include": "Participant evaluates long versus short messages, dense text, or concise summaries.", "exclude": "Participant describes too many separate emails or visual imagery alone.", "examples": "Very short, to the point (C050); Short and bold (C042)", "boundary": "Headings and layout may also warrant Visual Communication Preferences."}, "Visual Communication Preferences": {"definition": "Responses to visual formatting, structure, imagery, and presentation of institutional emails.", "include": "Participant discusses banners, images, layout, headings, or image-loading issues.", "exclude": "Participant discusses word count alone, without a design or presentation element.", "examples": "Prefer text first (C091); Download external images (C012)", "boundary": "Do not assume all participants share the same design preference."}, "Personalization and Targeting": {"definition": "Reactions to communications tailored, or appearing tailored, to a particular student or group.", "include": "Participant describes personal names, targeted audiences, or individually relevant messaging strategies.", "exclude": "A message is relevant without any reference to targeting or personalization.", "examples": "Targeted to the student (C107); Say my name (C096)", "boundary": "Personalization may be welcomed or viewed as marketing; preserve that distinction."}, "Actionability and Urgency": {"definition": "The role of requested actions, deadlines, immediacy, or time-sensitive consequences.", "include": "Participant responds to a call to action, deadline, urgent alert, or need to reply.", "exclude": "A message is described as important without an action or time-sensitive requirement.", "examples": "Direct call to action (C087); Gator safe notification (C086)", "boundary": "Importance and urgency are not interchangeable; check the stated trigger."}, "Email Management Behaviors": {"definition": "Routines and strategies for organizing, processing, retaining, filtering, or clearing emails.", "include": "Participant describes folders, flags, filters, subscriptions, inbox checking, or notifications.", "exclude": "Participant only describes disinterest or avoidance without a management strategy.", "examples": "Flag things and make folders (C040); Notification bubble (C101)", "boundary": "A filtering action can also indicate Disengagement if the participant explicitly avoids content."}, "Overlooked Information": {"definition": "Instances of missing or failing to recognize important institutional information.", "include": "Participant describes not noticing, overlooking, or discovering consequential information late.", "exclude": "Participant knowingly ignores an email without evidence that important information was missed.", "examples": "Didn’t realize (C064)", "boundary": "Do not infer harm or missed information from generic email overload."}};const STORE='interpretive-atlas-v1';let state;try{state=JSON.parse(localStorage.getItem(STORE))||{}}catch(e){state={}};state={categories:[],themes:[],assignments:{},edits:{},custom:[],memos:[],audit:[],reviews:{},...state};state.reviews ||= {};const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const all=()=>[...SOURCE,...state.custom];const row=id=>all().find(x=>x.id===id);const display=x=>({...x,...(state.edits[x.id]||{})});function save(){localStorage.setItem(STORE,JSON.stringify(state));renderAll();cloudQueueSave()}function log(action,detail){state.audit.unshift({at:new Date().toISOString(),action,detail})}function nav(v){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('active',e.id===v));document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.view===v));document.getElementById('pageTitle').textContent=({overview:'Research overview',explorer:'Code explorer',matrix:'Cross-interview comparison',synthesis:'Category & theme studio',audit:'Decision trail',codebook:'Category codebook'})[v]}document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>nav(b.dataset.view));function toggleDark(){document.body.classList.toggle('dark');localStorage.setItem('atlas-theme',document.body.classList.contains('dark')?'dark':'light')}if(localStorage.getItem('atlas-theme')==='dark')document.body.classList.add('dark');function bars(target,items){let max=Math.max(1,...items.map(x=>x[1]));document.getElementById(target).innerHTML=items.map(([k,v])=>`<div class="barrow"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${v/max*100}%"></div></div><b>${v}</b></div>`).join('')}function renderOverview(){let a=all();document.getElementById('metrics').innerHTML=[[a.length,'Coded entries'],[4,'Interviews'],[state.categories.length,'Provisional categories'],[state.themes.length,'Working themes']].map(([n,l])=>`<div class="card"><div class="eyebrow">${l}</div><div class="metric">${n}</div></div>`).join('');bars('rqbars',['PRQ','SRQ1','SRQ2','SRQ3'].map(q=>[q,a.filter(x=>display(x).rqs.includes(q)).length]));bars('subbars',[1,2,3,4].map(s=>['Subject '+s,a.filter(x=>x.subject===s).length]))}function catName(id){return state.categories.find(c=>c.id===id)?.name||'Uncategorized'}function categoryRules(c){return {definition:'',include:'',exclude:'',examples:'',boundary:'',...(CATEGORY_DEFAULTS[c.name]||{}),...(c.rules||{})}}
+function ruleField(c,k,label,hint){let r=categoryRules(c);return `<label class="rule-field"><span>${label}</span><textarea id="rule-${k}-${c.id}" placeholder="${hint}">${esc(r[k])}</textarea></label>`}
+function renderCodebook(){let search=(document.getElementById('ruleSearch')?.value||'').trim().toLowerCase();let cats=state.categories.filter(c=>(c.name+' '+Object.values(categoryRules(c)).join(' ')).toLowerCase().includes(search));document.getElementById('ruleCount').textContent=`${cats.length} of ${state.categories.length} categories`;document.getElementById('ruleList').innerHTML=cats.map(c=>`<details class="rule-card" id="rulecard-${c.id}"><summary><span><b>${esc(c.name)}</b><small>${esc(categoryRules(c).definition||'Definition not yet drafted')}</small></span><span class="rule-chevron">Edit rules ↗</span></summary><div class="rule-editor"><div class="rule-grid">${ruleField(c,'definition','Definition','What does this category represent?')}${ruleField(c,'include','Include when','What evidence warrants this category?')}${ruleField(c,'exclude','Exclude when','What should not be categorized here?')}${ruleField(c,'examples','Illustrative in vivo codes','Code IDs and labels')}${ruleField(c,'boundary','Boundary / overlap notes','How does this differ from adjacent categories?')}</div><div class="editor-actions"><button class="primary" onclick="saveCategoryRules('${c.id}')">Save application rules</button><span class="small muted">These rules are interpretive guidance, not automatic assignments.</span></div></div></details>`).join('')||'<p class="muted">No matching categories. Add a category in Categories & Themes.</p>'}
+function saveCategoryRules(id){let c=state.categories.find(x=>x.id===id);if(!c)return;let before=categoryRules(c),after={};['definition','include','exclude','examples','boundary'].forEach(k=>after[k]=document.getElementById('rule-'+k+'-'+id).value.trim());c.rules=after;log('Revised category application rules',JSON.stringify({category:c.name,before,after}));save();nav('codebook');}
+function openCategoryRules(id){nav('codebook');let el=document.getElementById('rulecard-'+id);if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'})}}
+function toggleRuleInline(id){let el=document.getElementById('inline-rule-'+id);if(el)el.hidden=!el.hidden}
+function reviewStatus(id){return state.reviews?.[id]?.status||''}
+function setReview(id,status){let note=document.getElementById('review-note-'+id)?.value.trim()||'';let before=state.reviews[id]||null;if(status==='open'&&!note)return alert('Add a brief discussion question or reason before flagging.');if(status==='resolved'&&!note)return alert('Document your resolution before marking resolved.');let after={status,note,at:new Date().toISOString()};state.reviews[id]=after;log(status==='open'?'Flagged code for discussion':'Resolved code discussion',JSON.stringify({id,before,after}));save()}
+function renderExplorer(){let q=document.getElementById('search').value.toLowerCase(),s=document.getElementById('subfilter').value,r=document.getElementById('rqfilter').value,c=document.getElementById('catfilter').value,review=document.getElementById('reviewfilter').value;let a=all().map(display).filter(x=>(!s||x.subject==s)&&(!r||x.rqs.includes(r))&&(!c||(state.assignments[x.id]||[]).includes(c))&&(!review||reviewStatus(x.id)===review)&&[x.code,x.definition,x.excerpt].join(' ').toLowerCase().includes(q));document.getElementById('resultcount').textContent=`${a.length} of ${all().length} entries`;document.getElementById('entries').innerHTML=a.map(x=>`<div class="entry"><div class="entryhead"><div><b>“${esc(x.code)}”</b> <span class="muted small">${esc(x.id)} · Subject ${x.subject} · ${esc(x.timestamp)} · PDF p.${x.page||'—'}</span></div><div class="entry-actions">${reviewStatus(x.id)==='open'?'<span class="review-pill">Needs discussion</span>':''}<button onclick="editCode('${x.id}')">Edit / categorize</button></div></div><div>${esc(x.definition)}</div><div>${x.rqs.map(t=>`<span class="tag">${t}</span>`).join('')}${(state.assignments[x.id]||[]).map(t=>`<span class="tag">◇ ${esc(catName(t))}</span>`).join('')}</div><details><summary class="link">View source excerpt & provenance</summary><div class="quote">${esc(x.excerpt)}</div><div class="small muted">Original code: ${esc(row(x.id)?.code)} · Original definition: ${esc(row(x.id)?.definition)} · Original excerpt: ${esc(row(x.id)?.excerpt)} · Timestamp: ${esc(row(x.id)?.timestamp)}. Source data remains unchanged.</div></details><div id="edit-${x.id}"></div></div>`).join('')}function editCode(id){let x=display(row(id));let el=document.getElementById('edit-'+id);if(el.innerHTML){el.innerHTML='';return}el.innerHTML=`<div class="panel" style="margin-top:12px"><div class="stack" style="justify-content:space-between"><h3>Edit coded entry ${esc(id)}</h3><button type="button" onclick="editCode('${id}')" aria-label="Close code editor">✕ Close</button></div><div class="editor-section"><label>Working code ${tip('A working label for this coded entry. The original in vivo code is preserved in the source record.')}<input id="code-${id}" value="${esc(x.code)}"></label></div><div class="editor-section"><label>Working definition ${tip('Your interpretation of what this code represents.')}<textarea id="def-${id}">${esc(x.definition)}</textarea></label></div><div class="editor-section"><label>Working excerpt ${tip('Supporting interview evidence. Check against the transcript before revising a quotation.')}<textarea id="excerpt-${id}">${esc(x.excerpt)}</textarea></label></div><div class="editor-section"><label>Research question alignment ${tip('Separate PRQ, SRQ1, SRQ2, and SRQ3 with commas. Multiple alignments are allowed.')}<input id="rqs-${id}" value="${esc(x.rqs.join(', '))}"></label></div><div class="editor-section"><div class="editor-section-title">Provisional categories ${tip('Select one or more interpretive categories. A code can belong to several categories; selecting a category does not change the original code.')}</div><div class="editor-section-desc">Choose all categories that apply to this coded entry.</div><div class="category-picker" role="group" aria-label="Provisional category assignments">${state.categories.map(c=>{let r=categoryRules(c);return `<div class="assignment-row"><label class="category-choice"><input type="checkbox" class="assign-${id}" value="${esc(c.id)}" ${(state.assignments[id]||[]).includes(c.id)?'checked':''}><span><b>${esc(c.name)}</b><small>${esc(r.definition||'No definition yet')}</small></span></label><button type="button" class="rules-toggle" onclick="toggleRuleInline('${id}-${c.id}')" aria-label="Show rules for ${esc(c.name)}">Rules</button><div class="inline-rule" id="inline-rule-${id}-${c.id}" hidden><p><b>Include</b> ${esc(r.include||'Not defined')}</p><p><b>Exclude</b> ${esc(r.exclude||'Not defined')}</p><p><b>Boundary</b> ${esc(r.boundary||'Not defined')}</p><p class="small muted">Examples: ${esc(r.examples||'Not defined')}</p><button type="button" onclick="openCategoryRules('${c.id}')">Edit category codebook ↗</button></div></div>`}).join('')||'<span class="muted">Create categories in Categories & Themes first.</span>'}</div></div><div class="review-panel"><div class="review-heading"><b>Collaborative review</b><span class="small muted">${reviewStatus(id)==='open'?'Needs discussion':reviewStatus(id)==='resolved'?'Resolved':'Not flagged'}</span></div><p class="small muted">Use this when a category assignment needs interpretation or a shared decision. Record the question and eventual resolution.</p><textarea id="review-note-${id}" placeholder="What is ambiguous? What evidence supports your decision?">${esc(state.reviews[id]?.note||'')}</textarea><div class="stack"><button type="button" onclick="setReview('${id}','open')">Flag for discussion</button><button type="button" onclick="setReview('${id}','resolved')">Mark resolved</button></div></div><div class="editor-actions"><button class="primary" onclick="saveCode('${id}')">Save working changes</button><button type="button" onclick="editCode('${id}')">Cancel</button><span class="small muted">Your changes are recorded in the decision trail.</span></div></div>`}
+function tip(message){return `<span class="help-tip" tabindex="0" role="note" aria-label="Help: ${esc(message)}" data-tip="${esc(message)}">?</span>`}
+function saveCode(id){let before=display(row(id));let after={code:document.getElementById('code-'+id).value,definition:document.getElementById('def-'+id).value,excerpt:document.getElementById('excerpt-'+id).value,rqs:[...new Set(document.getElementById('rqs-'+id).value.toUpperCase().match(/PRQ|SRQ[123]/g)||[])]};state.edits[id]=after;let cats=[...document.querySelectorAll('.assign-'+id+':checked')].map(x=>x.value);state.assignments[id]=cats;log('Code revision / category assignment',JSON.stringify({id,before,after,categories:cats.map(catName)}));save()}function addCode(){let code=prompt('New in vivo code (use participant language):');if(!code)return;let subject=Number(prompt('Interview subject number (1–4):','1'));if(![1,2,3,4].includes(subject))return alert('Choose subject 1–4');let definition=prompt('Working definition:')||'';let excerpt=prompt('Supporting excerpt (verbatim):')||'';let timestamp=prompt('Timestamp (MM:SS):')||'';let id='N'+Date.now();state.custom.push({id,subject,code,definition,excerpt,timestamp,rqs:[],page:null});log('Added analytic code',id+' '+code);save()}function createCat(){let e=document.getElementById('newcat'),name=e.value.trim();if(!name)return;let id='CAT'+Date.now();state.categories.push({id,name});log('Created provisional category',name);e.value='';save()}function createTheme(){let e=document.getElementById('newtheme'),name=e.value.trim();if(!name)return;state.themes.push({id:'TH'+Date.now(),name,categories:[],description:''});log('Created working theme',name);e.value='';save()}function updateCat(id){let c=state.categories.find(x=>x.id===id),old=c.name,n=prompt('Rename category',old);if(!n||n===old)return;c.name=n;log('Renamed category',old+' → '+n);save()}function deleteCat(id){if(!confirm('Remove category assignments? Source codes will be preserved.'))return;let c=catName(id);state.categories=state.categories.filter(x=>x.id!==id);Object.keys(state.assignments).forEach(k=>state.assignments[k]=state.assignments[k].filter(x=>x!==id));state.themes.forEach(t=>t.categories=t.categories.filter(x=>x!==id));log('Removed category',c);save()}function updateTheme(id){let t=state.themes.find(x=>x.id===id),name=document.getElementById('tn-'+id).value,description=document.getElementById('td-'+id).value,categories=[...document.querySelectorAll('.tc-'+id+':checked')].map(x=>x.value);log('Revised working theme',JSON.stringify({before:t,after:{name,description,categories}}));Object.assign(t,{name,description,categories});save()}function deleteTheme(id){if(!confirm('Delete this working theme? Decision remains in trail.'))return;let t=state.themes.find(x=>x.id===id);state.themes=state.themes.filter(x=>x.id!==id);log('Removed working theme',t.name);save()}function renderSynthesis(){document.getElementById('categorylist').innerHTML=state.categories.map(c=>`<div class="themebox"><div class="stack" style="justify-content:space-between"><b>${esc(c.name)}</b><div><span class="tag">${Object.values(state.assignments).filter(a=>a.includes(c.id)).length} codes</span><button onclick="openCategoryRules('${c.id}')">Rules</button><button onclick="updateCat('${c.id}')">Rename</button><button onclick="deleteCat('${c.id}')">×</button></div></div></div>`).join('')||'<p class="muted">No categories yet. Create your first provisional grouping.</p>';document.getElementById('themelist').innerHTML=state.themes.map(t=>`<div class="themebox"><input id="tn-${t.id}" value="${esc(t.name)}"><textarea id="td-${t.id}" placeholder="Working interpretation / theme definition">${esc(t.description)}</textarea><p class="small muted">Categories informing this theme</p>${state.categories.map(c=>`<label style="display:block"><input style="width:auto" type="checkbox" class="tc-${t.id}" value="${c.id}" ${t.categories.includes(c.id)?'checked':''}> ${esc(c.name)}</label>`).join('')}<div class="stack" style="margin-top:10px"><button class="primary" onclick="updateTheme('${t.id}')">Save theme</button><button onclick="deleteTheme('${t.id}')">Delete</button></div></div>`).join('')||'<p class="muted">No themes yet. Themes are intentionally separate from categories.</p>';document.getElementById('memolist').innerHTML=state.memos.map(m=>`<div class="themebox"><b>${esc(m.title)}</b><div class="small muted">${esc(m.at)}</div><p>${esc(m.body)}</p></div>`).join('')}function saveMemo(){let title=document.getElementById('memotitle').value.trim(),body=document.getElementById('memobody').value.trim();if(!title||!body)return alert('Add a title and memo.');state.memos.unshift({title,body,at:new Date().toISOString()});log('Saved analytic memo',title+' — '+body);document.getElementById('memotitle').value='';document.getElementById('memobody').value='';save()}function showMatrix(cat,s){nav('matrix');let a=all().filter(x=>x.subject===s&&(state.assignments[x.id]||[]).includes(cat));document.getElementById('matrixdetail').innerHTML=`<h2>${esc(catName(cat))} · Subject ${s}</h2>`+(a.map(x=>`<div class="entry"><b>“${esc(display(x).code)}”</b><div class="quote">${esc(x.excerpt)}</div><span class="small muted">${x.id} · ${esc(x.timestamp)}</span></div>`).join('')||'<p>No entries assigned.</p>')}function renderMatrix(){let cats=state.categories;document.getElementById('matrixbody').innerHTML=`<div class="heat"><div>Category</div>${[1,2,3,4].map(s=>`<div><b>Subject ${s}</b></div>`).join('')}${cats.map(c=>`<div style="text-align:left">${esc(c.name)}</div>${[1,2,3,4].map(s=>{let n=all().filter(x=>x.subject===s&&(state.assignments[x.id]||[]).includes(c.id)).length;return `<div class="${n?'hot':''}" style="cursor:pointer" onclick="showMatrix('${c.id}',${s})">${n}</div>`}).join('')}`).join('')}</div>`+(cats.length?'':'<p class="muted">Assign categories to codes to populate this matrix.</p>')}function renderAudit(){document.getElementById('auditlist').innerHTML=state.audit.map(a=>`<div class="entry"><b>${esc(a.action)}</b><span class="muted small"> · ${esc(a.at)}</span><div class="small" style="overflow-wrap:anywhere;white-space:pre-wrap">${esc(a.detail)}</div></div>`).join('')||'<p class="muted">Your first analytic decision will appear here.</p>'}function renderAll(){let cf=document.getElementById('catfilter'),v=cf.value;cf.innerHTML='<option value="">All categories</option>'+state.categories.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');cf.value=v;renderOverview();renderExplorer();renderCodebook();renderSynthesis();renderMatrix();renderAudit();renderInsights();renderKeywords();renderTopics()}function download(name,content,type){let b=new Blob([content],{type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}function exportJSON(){download('qualitative-analysis-backup.json',JSON.stringify({format:'interpretive-atlas-v1',source:SOURCE,workspace:state},null,2),'application/json')}function exportCSV(){let fields=['id','subject','code','definition','rqs','excerpt','timestamp','page','categories'];let a=all().map(x=>{let d=display(x);return {...d,rqs:d.rqs.join('; '),categories:(state.assignments[x.id]||[]).map(catName).join('; ')}});download('qualitative-coded-data.csv',[fields.join(','),...a.map(x=>fields.map(k=>'"'+String(x[k]??'').replace(/"/g,'""')+'"').join(','))].join('\n'),'text/csv')}function exportImage(){let items=['PRQ','SRQ1','SRQ2','SRQ3'].map(q=>[q,all().filter(x=>display(x).rqs.includes(q)).length]),max=Math.max(...items.map(x=>x[1]));let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390"><rect width="900" height="390" fill="#f8faf9"/><text x="50" y="58" font-family="Arial" font-size="27" font-weight="bold" fill="#193338">Research question alignment</text><text x="50" y="84" font-family="Arial" font-size="14" fill="#657a7b">Institutional Email Communication · Coded entries (multiple alignment permitted)</text>${items.map(([k,n],i)=>`<text x="50" y="${143+i*57}" font-family="Arial" font-size="18" fill="#193338">${k}</text><rect x="155" y="${124+i*57}" width="610" height="27" rx="7" fill="#e2ede9"/><rect x="155" y="${124+i*57}" width="${610*n/max}" height="27" rx="7" fill="#167e75"/><text x="785" y="${144+i*57}" font-family="Arial" font-size="18" fill="#193338">${n}</text>`).join('')}<text x="50" y="365" font-family="Arial" font-size="12" fill="#657a7b">Descriptive codebook visualization; not a measure of statistical significance.</text></svg>`;download('research-question-alignment.svg',svg,'image/svg+xml')}function importBackup(ev){let f=ev.target.files[0];if(!f)return;let reader=new FileReader();reader.onload=()=>{try{let d=JSON.parse(reader.result);if(d.format!=='interpretive-atlas-v1'||!d.workspace)throw Error('Invalid backup');if(!confirm('Replace your current local workspace with this backup?'))return;state={reviews:{},...d.workspace};log('Imported workspace backup',f.name);save()}catch(e){alert('Could not import: '+e.message)}};reader.readAsText(f)}
+// v2 research tools: local-first. Original SOURCE is never modified.
+state.topics ||= [];
+state.topicAssignments ||= {};
+function topicName(id){return state.topics.find(t=>t.id===id)?.name||id}
+function evidenceHTML(entries){return entries.length?entries.map(x=>`<div class="entry"><div class="entryhead"><b>${esc(display(x).code)}</b><button onclick="openEvidence('${x.id}')">Open code ↗</button></div><div class="small muted">Subject ${x.subject} · ${esc(x.timestamp||'No timestamp')} · ${esc(x.id)}</div><div class="quote">${esc(x.excerpt||'No excerpt')}</div><div class="small">${esc(display(x).definition||'')}</div></div>`).join(''):'<p class="muted">No entries for this selection.</p>'}
+function openEvidence(id){nav('explorer');document.getElementById('search').value=id;renderExplorer()}
+function showRQEvidence(rq,subject){let items=all().filter(x=>x.subject===subject&&display(x).rqs.includes(rq));document.getElementById('rqdetail').innerHTML=`<h3>${esc(rq)} · Subject ${subject} · ${items.length} entries</h3>`+evidenceHTML(items)}
+function showCoEvidence(a,b){let items=all().filter(x=>(state.assignments[x.id]||[]).includes(a)&&(state.assignments[x.id]||[]).includes(b));document.getElementById('insightdetail').innerHTML=`<h3>${esc(catName(a))} × ${esc(catName(b))} · ${items.length} entries</h3>`+evidenceHTML(items)}
+function showTopicEvidence(id,subject){let items=all().filter(x=>x.subject===subject&&(state.topicAssignments[x.id]||[]).includes(id));document.getElementById('insightdetail').innerHTML=`<h3>${esc(topicName(id))} · Subject ${subject} · ${items.length} entries</h3>`+evidenceHTML(items)}
+function heatTable(labels,subjects,measure,callback){let vals=labels.flatMap(x=>subjects.map(y=>measure(x,y)));let max=Math.max(1,...vals);return `<div class="heat" style="grid-template-columns:minmax(140px,1.3fr) repeat(${subjects.length},minmax(55px,1fr));overflow-x:auto"><div><b>Dimension</b></div>${subjects.map(s=>`<div><b>Subject ${s}</b></div>`).join('')}${labels.map((l,i)=>`<div style="text-align:left;overflow-wrap:anywhere">${esc(l.name||l)}</div>${subjects.map((sub,j)=>{let n=measure(l,sub),opacity=.12+.72*n/max;return `<div role="button" tabindex="0" title="Show evidence" onclick="${callback}(${i},${j})" style="cursor:pointer;background:rgba(25,139,128,${opacity.toFixed(3)});border:1px solid var(--line);font-weight:700">${n}</div>`}).join('')}`).join('')}</div>`}
+function renderInsights(){let qs=['PRQ','SRQ1','SRQ2','SRQ3'];let cats=state.categories;let topics=state.topics;document.getElementById('insightmetrics').innerHTML=[['Source codes',SOURCE.length],['Custom codes',state.custom.length],['Categories',cats.length],['Topics',topics.length]].map(([label,n])=>`<div class="card"><div class="metric">${n}</div><div class="muted">${label}</div></div>`).join('');document.getElementById('rqheat').innerHTML=heatTable(qs,[1,2,3,4],(q,s)=>all().filter(x=>x.subject===s&&display(x).rqs.includes(q)).length,'showRQIndex');document.getElementById('coheat').innerHTML=cats.length?heatTable(cats,cats.map((_,i)=>i+1),(a,j)=>all().filter(x=>(state.assignments[x.id]||[]).includes(a.id)&&(state.assignments[x.id]||[]).includes(cats[j-1].id)).length,'showCoIndex').replace(/Subject (\d+)/g,(_,n)=>esc(cats[Number(n)-1]?.name||n)):'<p class="muted">Create and assign categories to populate this chart.</p>';document.getElementById('topicheat').innerHTML=topics.length?heatTable(topics,[1,2,3,4],(t,s)=>all().filter(x=>x.subject===s&&(state.topicAssignments[x.id]||[]).includes(t.id)).length,'showTopicIndex'):'<p class="muted">Create and assign topics to populate this chart.</p>'}
+function showRQIndex(i,j){showRQEvidence(['PRQ','SRQ1','SRQ2','SRQ3'][i],j+1)}
+function showCoIndex(i,j){showCoEvidence(state.categories[i].id,state.categories[j].id)}
+function showTopicIndex(i,j){showTopicEvidence(state.topics[i].id,j+1)}
+function createTopic(){let input=document.getElementById('newtopic'),name=input.value.trim();if(!name)return;if(state.topics.some(t=>t.name.toLowerCase()===name.toLowerCase()))return alert('This topic already exists.');let id='TOP'+Date.now();state.topics.push({id,name});log('Created topic',name);input.value='';save()}
+function renameTopic(id){let t=state.topics.find(t=>t.id===id),n=prompt('Rename topic',t.name);if(!n?.trim())return;log('Renamed topic',t.name+' → '+n.trim());t.name=n.trim();save()}
+function deleteTopic(id){if(!confirm('Remove this topic and its assignments? The original source is unchanged.'))return;let name=topicName(id);state.topics=state.topics.filter(t=>t.id!==id);for(let key of Object.keys(state.topicAssignments))state.topicAssignments[key]=state.topicAssignments[key].filter(x=>x!==id);log('Removed topic',name);save()}
+function renderTopics(){document.getElementById('topiclist').innerHTML=state.topics.map(t=>`<div class="entry"><b>${esc(t.name)}</b> <span class="tag">${all().filter(x=>(state.topicAssignments[x.id]||[]).includes(t.id)).length} codes</span> <button onclick="renameTopic('${t.id}')">Rename</button> <button onclick="deleteTopic('${t.id}')">Delete</button></div>`).join('')||'<p class="muted">No topics yet.</p>';let sel=document.getElementById('topiccode'),prev=sel.value;sel.innerHTML=all().map(x=>`<option value="${x.id}">${x.id} · S${x.subject} · ${esc(display(x).code)}</option>`).join('');if(all().some(x=>x.id===prev))sel.value=prev;renderTopicEditor()}
+function renderTopicEditor(){let id=document.getElementById('topiccode').value;document.getElementById('topiceditor').innerHTML=state.topics.map(t=>`<label style="display:block;margin:9px 0"><input type="checkbox" style="width:auto" class="topiccheck" value="${t.id}" ${(state.topicAssignments[id]||[]).includes(t.id)?'checked':''}> ${esc(t.name)}</label>`).join('')+'<button class="primary" onclick="saveTopics()">Save topic assignments</button>'}
+function saveTopics(){let id=document.getElementById('topiccode').value,before=state.topicAssignments[id]||[],after=[...document.querySelectorAll('.topiccheck:checked')].map(x=>x.value);state.topicAssignments[id]=after;log('Revised topic assignments',JSON.stringify({code:id,before,after}));save()}
+function renderKeywords(){let q=document.getElementById('kwquery').value.trim().toLowerCase(),sub=document.getElementById('kwsubject').value;let found=q?all().filter(x=>(!sub||String(x.subject)===sub)&&[x.code,x.definition,x.excerpt].join(' ').toLowerCase().includes(q)):[];document.getElementById('kwresults').innerHTML=q?`<p class="small muted">${found.length} matching coded entries. These are not word-frequency estimates of the full transcripts.</p>`+evidenceHTML(found.slice(0,100)):'<p class="muted">Enter a keyword to explore its context in the codebook.</p>'}
+
+// Optional shared workspace (Supabase). Local data remains available offline.
+const CLOUD_CONFIG_KEY='interpretive-atlas-cloud-config';let cloudClient=null,cloudUser=null,cloudReady=false,cloudTimer=null,cloudBusy=false,cloudDirty=false;
+function cloudStatus(message){document.getElementById('cloudstatus').textContent=message}
+function cloudError(message){document.getElementById('clouderr').textContent=message}
+function cloudToggle(){let el=document.getElementById('cloudpanel');el.style.display=el.style.display==='none'?'block':'none'}
+function cloudConfig(){try{return JSON.parse(localStorage.getItem(CLOUD_CONFIG_KEY)||'null')}catch(e){return null}}
+async function cloudConfigure(){let url=document.getElementById('cloudurl').value.trim().replace(/\/$/,''),key=document.getElementById('cloudkey').value.trim();if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url))return cloudError('Check the Project URL.');if(!key.startsWith('sb_publishable_')&&!key.startsWith('eyJ'))return cloudError('Use a publishable or legacy anon key, not a secret key.');localStorage.setItem(CLOUD_CONFIG_KEY,JSON.stringify({url,key}));try{await cloudInit();cloudError(cloudClient?'Connection settings saved. Sign in below.':'Settings saved, but the Supabase library is unavailable.')}catch(e){cloudError('Connection error: '+e.message)}}
+async function cloudInit(){let config=cloudConfig();if(!config){cloudStatus('Local-only · configure Supabase to collaborate');return}document.getElementById('cloudurl').value=config.url;document.getElementById('cloudkey').value=config.key;if(!window.supabase){cloudStatus('Supabase library unavailable · check internet');return}cloudClient=window.supabase.createClient(config.url,config.key,{auth:{persistSession:true,autoRefreshToken:true}});let {data,error}=await cloudClient.auth.getUser();cloudUser=error?null:data.user;cloudReady=!!cloudUser;cloudStatus(cloudUser?'Signed in as '+cloudUser.email+' · shared sync available':'Connected · sign in to collaborate');cloudClient.auth.onAuthStateChange((event,session)=>{cloudUser=session?.user||null;cloudReady=!!cloudUser;cloudStatus(cloudUser?'Signed in as '+cloudUser.email:'Connected · signed out');if(event==='PASSWORD_RECOVERY')cloudRecoveryUI()});if(window.location.hash.includes('type=recovery')&&cloudUser)cloudRecoveryUI()}
+let cloudRecoveryMode=false;
+function cloudShowResetRequest(){let el=document.getElementById('resetrequest');el.hidden=!el.hidden;document.getElementById('cloudpanel').style.display='block';cloudError('')}
+async function cloudRequestReset(){if(!cloudClient)return cloudError('Save your Supabase connection settings first.');let email=document.getElementById('cloudemail').value.trim();if(!email||!/^\S+@\S+\.\S+$/.test(email))return cloudError('Enter your researcher email above first.');let redirectTo=window.location.origin+window.location.pathname;let {error}=await cloudClient.auth.resetPasswordForEmail(email,{redirectTo});if(error)return cloudError('Could not request reset: '+error.message);cloudError('If this email belongs to an account, a reset link will arrive shortly. Check spam or junk mail too.');}
+async function cloudCompleteReset(){if(!cloudClient)return cloudError('Connect to Supabase first.');if(!cloudRecoveryMode)return cloudError('Open your password-recovery email link before choosing a new password.');let pass=document.getElementById('cloudnewpassword').value,confirmPass=document.getElementById('cloudconfirmpassword').value;if(pass.length<8)return cloudError('Use at least 8 characters.');if(pass!==confirmPass)return cloudError('The two passwords do not match.');let {error}=await cloudClient.auth.updateUser({password:pass});if(error)return cloudError('Password update failed: '+error.message);cloudRecoveryMode=false;document.getElementById('resetfinish').hidden=true;document.getElementById('cloudnewpassword').value='';document.getElementById('cloudconfirmpassword').value='';cloudError('Password updated successfully. You can sign in with your new password.');if(window.location.hash.includes('type=recovery'))history.replaceState(null,'',window.location.pathname+window.location.search);}
+function cloudRecoveryUI(){cloudRecoveryMode=true;document.getElementById('cloudpanel').style.display='block';document.getElementById('resetfinish').hidden=false;document.getElementById('resetrequest').hidden=true;cloudError('Recovery link verified. Choose a new password below.');}
+async function cloudSignUp(){if(!cloudClient)return cloudError('Save connection settings first.');let email=document.getElementById('cloudemail').value.trim(),password=document.getElementById('cloudpassword').value;let {error}=await cloudClient.auth.signUp({email,password});cloudError(error?error.message:'Account request submitted. Check your email for confirmation, then sign in.');}
+async function cloudSignIn(){if(!cloudClient)return cloudError('Save connection settings first.');let email=document.getElementById('cloudemail').value.trim(),password=document.getElementById('cloudpassword').value;let {data,error}=await cloudClient.auth.signInWithPassword({email,password});if(error)return cloudError(error.message);cloudUser=data.user;cloudReady=true;cloudError('Signed in. Click “Load latest shared work” if another researcher has initialized it, or “Save shared work” to initialize it.');cloudStatus('Signed in as '+cloudUser.email+' · ready')}
+async function cloudSignOut(){if(cloudClient)await cloudClient.auth.signOut();cloudUser=null;cloudReady=false;cloudStatus('Signed out · local-only');cloudError('Signed out. Browser-local edits are still present.')}
+async function cloudRefresh(){if(!cloudReady)return cloudError('Sign in first.');if(cloudDirty&&!confirm('You have unsynced local changes. Replace them with the latest shared workspace?'))return;let {data,error}=await cloudClient.from('research_workspaces').select('workspace,updated_at,updated_by').eq('id','main').maybeSingle();if(error)return cloudError('Load failed: '+error.message);if(!data)return cloudError('No shared workspace yet. The first researcher should click “Save shared work” to initialize it.');if(!confirm('Replace this browser’s working analysis with the shared version from '+new Date(data.updated_at).toLocaleString()+'? Export a JSON backup first if needed.'))return;state={categories:[],themes:[],assignments:{},edits:{},custom:[],memos:[],audit:[],reviews:{},topics:[],topicAssignments:{},...data.workspace};localStorage.setItem(STORE,JSON.stringify(state));cloudDirty=false;renderAll();cloudStatus('Shared workspace loaded · '+new Date(data.updated_at).toLocaleTimeString());cloudError('Loaded shared data successfully.')}
+async function cloudPush(){if(!cloudReady)return cloudError('Sign in first.');if(cloudBusy)return;cloudBusy=true;cloudStatus('Saving shared workspace…');try{let {error}=await cloudClient.from('research_workspaces').upsert({id:'main',workspace:{...state,source:SOURCE},updated_by:cloudUser.id,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;cloudDirty=false;cloudStatus('Shared workspace saved · '+new Date().toLocaleTimeString());cloudError('Changes saved to Supabase. Other researchers should click “Load latest shared work.”')}catch(e){cloudStatus('Sync failed · local edits preserved');cloudError('Save failed: '+e.message)}finally{cloudBusy=false}}
+function cloudQueueSave(){if(!cloudReady)return;cloudDirty=true;cloudStatus('Unsynced changes · saving soon…');clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPush(),1600)}
+renderAll();
+cloudInit().catch(e=>{cloudStatus("Connection initialization failed");cloudError(e.message)});
+</script></body></html>
